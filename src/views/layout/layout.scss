@@ -1,0 +1,44 @@
+@import "base";
+
+@keyframes myrotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-90deg);
+  }
+
+  50% {
+    transform: rotate(-180deg);
+  }
+
+  75% {
+    transform: rotate(-270deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.layout-main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .bgm-btn {
+    z-index: 8;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 30px;
+    height: 30px;
+    background-size: 100%;
+    background-image: url(http://s3img.city.sina.com.cn/activity/common/large/9f9acca088ab3e67f12eb612bdd12c07.png);
+
+    &.play {
+      animation: myrotate 5s linear 0s infinite normal;
+    }
+  }
+}
