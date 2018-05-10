@@ -4,8 +4,6 @@ import App from './App.vue'
 import router from 'router'
 import svgicon = require('vue-svgicon')
 
-//import 'vue2-animate/dist/vue2-animate.min.css';
-
 // import all icons
 import 'components/icons'
 
