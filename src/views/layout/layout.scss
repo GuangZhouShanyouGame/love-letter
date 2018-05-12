@@ -30,14 +30,16 @@
   .bgm-btn {
     z-index: 8;
     position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 30px;
-    height: 30px;
+    top: ( 38 / 75 ) * 1rem;
+    right: ( 34 / 75 ) * 1rem;
+    width: ( 59 / 75 ) * 1rem;
+    height: ( 59 / 75 ) * 1rem;
+    background: url("../../assets/images/play_close.png") no-repeat;
     background-size: 100%;
-    background-image: url(http://s3img.city.sina.com.cn/activity/common/large/9f9acca088ab3e67f12eb612bdd12c07.png);
 
     &.play {
+      background: url("../../assets/images/paly_open.png") no-repeat;
+      background-size: 100%;
       animation: myrotate 5s linear 0s infinite normal;
     }
   }

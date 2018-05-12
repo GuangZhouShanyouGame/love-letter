@@ -1,22 +1,47 @@
 @import "base";
 
 .loading-wp {
+  position: relative;
   width: 100%;
   height: 100%;
-  padding-top: 50px;
-  background: #00ccff;
-  color: #fff;
-  vertical-align: middle;
-  text-align: center;
+  padding-top: (592 / 75) * 1rem;
+  background: url("../../assets/images/loading_projector.png") no-repeat;
+  background-size: contain;
+  background-position: top center;
 
-  a {
-    display: inline-block;
-    width: 50%;
-    padding: 12px 10px;
-    margin: 20px auto;
-    border: 1px solid #fff;
-    color: #fff;;
+  .progress-cont {
+    position: relative;
+    width: ( 500 / 75 ) * 1rem;
+    margin: 0 auto;
+  }
+
+  .progress-w {
+    position: relative;
+    width: ( 500 / 75 ) * 1rem;
+    height: (20 / 75) * 1rem;
+    border-radius: (20 / 75) * 1rem;
+    background-color: #0f0503;
+    overflow: hidden;
+
+    .progress-bar {
+      position: absolute;
+      height: (20 / 75) * 1rem;
+      background-color: #c8a973;
+      border-radius: (20 / 75) * 1rem;
+    }
+  }
+
+  .progress-Num {
+    position: relative;
+    margin-top: (65 / 75) * 1rem;
+    font-size: (54 / 75) * 1rem;
+    color: #fff;
+    font-weight: 500;
     text-align: center;
-    border-radius: 6px;
+    vertical-align: bottom;
+
+    span {
+      font-size: (40 / 75) * 1rem;
+    }
   }
 }

@@ -4,32 +4,54 @@
   position: relative;
   width: 100%;
   height: 100%;
-  padding-top: 50px;
-  background: #00ccff;
-  color: #fff;
-  vertical-align: middle;
-  text-align: center;
+  background-color: #1e100b;
 
-  a {
-    display: inline-block;
-    width: 50%;
-    padding: 12px 10px;
-    margin: 20px auto;
-    border: 1px solid #fff;
-    color: #fff;;
+  .home-bg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url("../../assets/images/shouye.jpg") no-repeat;
+    background-size: contain;
+    background-position: top center;
     text-align: center;
-    border-radius: 6px;
   }
 
-  .no-letter {
-    z-index: 99;
+  .logo-img {
+    width: (144 / 75) * 1rem;
+    margin-top: (40 /75) * 1rem;
+    vertical-align: middle;
+    outline: none;
+    overflow: hidden;
+  }
+
+  .btn-myletter {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: (1000 / 75) * 1rem;
+    width: 100%;
+    height: (176 / 75) * 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    background: url("../../assets/images/myletter_btn.png") no-repeat;
+    background-position: top center;
+  }
+
+  .share-cont {
+    display: none;
+    z-index: 999;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    padding-top: 20px;
-    color: #fff;
-    background-color: rgba($color: #000000, $alpha: 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
+
+    .share-img {
+      width: 100%;
+      vertical-align: middle;
+      outline: none;
+      overflow: hidden;
+    }
   }
 }

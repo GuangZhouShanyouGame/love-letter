@@ -27,11 +27,7 @@ module.exports = {
     "number-leading-zero": null,
     // 属性顺序
     "order/order": [
-      "dollar-variables",
-      "custom-properties",
-      "declarations",
-      "rules",
-      "at-rules"
+      "dollar-variables", "custom-properties", "declarations", "rules", "at-rules"
     ],
     "order/properties-order": [
       "display",

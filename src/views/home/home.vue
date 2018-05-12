@@ -1,12 +1,11 @@
 <template>
   <div class="home-wp">
-    <h1>首页</h1>
-    <br/>
-    <a href="JavaScript://" @click="showNoLetter = true;">没有情书</a>
-    <a href="#/myLoveLetter">我的情书</a>
-
-    <div class="no-letter" v-if="showNoLetter" @click="showNoLetter = false;">
-      没有情书
+    <div class="home-bg">
+      <img src="../../assets/images/logo.png" class="logo-img" alt="中国巨幕">
+      <a href="" class="btn-myletter"></a>
+    </div>
+    <div class="share-cont">
+      <img src="../../assets/images/share_bg.png" class="share-img" alt="分享">
     </div>
   </div>
 </template>
