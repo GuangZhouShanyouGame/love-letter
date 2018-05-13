@@ -142,5 +142,13 @@
     background-color: rgba(0, 0, 0, 0.7);
     text-align: center;
     vertical-align: middle;
+
+    .btn-fuzhi {
+      display: block;
+      padding: (40 / 75) * 1rem;
+      margin-top: (40 / 75) * 1rem;
+      background-color: #fff;
+      color: #000;
+    }
   }
 }

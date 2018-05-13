@@ -4,7 +4,7 @@
       <img src="../../assets/images/logo.png" class="logo-img" alt="">
 
       <div class="myLoveLetter-main">
-        <swiper :options="swiperOption">
+        <swiper :options="swiperOption" ref="mySwiper">
           <swiper-slide v-for="(mail,i) in mails" :key="i">
             <div class="letter-info">
               <div class="wm">亲爱的XXX：</div>
@@ -26,12 +26,15 @@
 
         <div class="myLoveLetter-btns">
           <a href="#/home" class="myLoveLetter-btn-link"></a>
-          <a href="avascript://" class="myLoveLetter-btn-link" @click="showKeys = true;">迈出这一步</a>
+          <a href="javascript://" class="myLoveLetter-btn-link" @click="onStepOut">迈出这一步</a>
         </div>
       </div>
     </div>
     <div class="myLoveLetter-bottom"></div>
-    <div class="keys-wp" v-if="showKeys" @click="showKeys = false;">复制密钥</div>
+    <div class="keys-wp" v-if="showKeys" @click="showKeys = false;">
+      复制密钥
+      <a href="javascript://" class="btn-fuzhi" data-clipboard-text="这是复制内容" @click="fuzhi">复制密钥</a>
+    </div>
   </div>
 </template>
 <style src="./myLoveLetter.scss" lang="scss" scoped></style>
