@@ -16,17 +16,17 @@ export default class Loading extends Vue {
     const that = this;
     const loader = new resLoader({
       resources: [
-        '../../assets/images/l_arrow.png',
-        '../../assets/images/loading_projector.png',
-        '../../assets/images/logo.png',
-        '../../assets/images/movie_m.png',
-        '../../assets/images/myletter_btn.png',
-        '../../assets/images/paly_open.png',
-        '../../assets/images/play_close.png',
-        '../../assets/images/r_arrow.png',
-        '../../assets/images/share_bg.png',
-        '../../assets/images/shouye.jpg',
-        '../../assets/images/watchMovie_btns.png'
+        '/love-letter/dist/qa/static/img/l_arrow.png',
+        '/love-letter/dist/qa/static/img/loading_projector.png',
+        '/love-letter/dist/qa/static/img/logo.png',
+        '/love-letter/dist/qa/static/img/movie_m.png',
+        '/love-letter/dist/qa/static/img/myletter_btn.png',
+        '/love-letter/dist/qa/static/img/paly_open.png',
+        '/love-letter/dist/qa/static/img/play_close.png',
+        '/love-letter/dist/qa/static/img/r_arrow.png',
+        '/love-letter/dist/qa/static/img/share_bg.png',
+        '/love-letter/dist/qa/static/img/shouye.jpg',
+        '/love-letter/dist/qa/static/img/watchMovie_btns.png'
       ],
       onStart: function (total) {
         console.log('start:' + total);
