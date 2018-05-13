@@ -7,8 +7,12 @@
         <swiper :options="swiperOption">
           <swiper-slide>
             <div class="letter-info">
-              <div class="wm"></div>
+              <div class="wm">亲爱的XXX：</div>
               <img src="https://surmon-china.github.io/vue-awesome-swiper/static/images/surmon-6.jpg">
+              <div class="u-info">
+                <img class="u-avatar" src="https://surmon-china.github.io/vue-awesome-swiper/static/images/surmon-6.jpg" alt="">
+                <span class="u-name">已知昵称</span>
+              </div>
             </div>
           </swiper-slide>
           <swiper-slide>

@@ -16,7 +16,7 @@ const DEFAULTCONFIG = {
 
 
 
-const isSuccess = res => res.code !== undefined && res.code !== null && Number(res.code) === 1
+const isSuccess = res => res.code !== undefined && res.code !== null && Number(res.code) === 0
 const resFormat = res => res.data || {}
 
 const http: HttpResquest = {}
@@ -57,7 +57,7 @@ methods.forEach(v => {
         // cbLogicError && cbLogicError.call(null, _err);
         return Promise.reject(_err)
       }
-      return resFormat(response.data)
+      return resFormat(response)
     }, error => {
       const _err = {
         msg: error.message || '网络故障',

@@ -1,6 +1,6 @@
 
 import Vue from 'components/base'
-import { Component } from 'vue-property-decorator'
+import { Component, Watch } from 'vue-property-decorator'
 import template from './layout.vue'
 
 @Component({
@@ -8,10 +8,15 @@ import template from './layout.vue'
 })
 export default class Layout extends Vue {
 
+  showPlay = true;
   isPlay = true;
 
   async created() {
     this.isweixin();
+  }
+
+  async mounted() {
+    this.pagePlayAudio();
   }
 
   // 判断是否是微信浏览器
@@ -31,6 +36,11 @@ export default class Layout extends Vue {
     }
   }
 
+  @Watch('$route')
+  onRouteChanged(val: string, oldVal: string) {
+    this.pagePlayAudio();
+  }
+
   playAudio() {
     const audio = document.querySelector('#bgm_audio');
     this.isPlay = !this.isPlay;
@@ -39,6 +49,20 @@ export default class Layout extends Vue {
       (<any>audio).play();
     } else {
       (<any>audio).pause();
+    }
+  }
+
+  pagePlayAudio () {
+    const audio = document.querySelector('#bgm_audio');
+
+    if(this.$route.path === '/loading') {
+      this.isPlay = false;
+      this.showPlay = false;
+      (<any>audio).pause();
+    } else {
+      this.isPlay = true;
+      this.showPlay = true;
+      (<any>audio).play();
     }
   }
 }

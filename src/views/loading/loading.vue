@@ -2,10 +2,10 @@
   <div class="loading-wp">
     <div class="progress-cont">
       <div class="progress-w">
-        <div class="progress-bar" style="width: 54%;"></div>
+        <div class="progress-bar" :style="'width:' + percent.num + '%;'"></div>
       </div>
       <div class="progress-Num">
-        54
+        {{percent.num}}
         <span>%</span>
       </div>
     </div>

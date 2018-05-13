@@ -1,15 +1,37 @@
 <template>
   <div class="myLoveLetter-wp">
-    <h1>我的情书页列表</h1>
-    <br/>
-    <a href="#/home">返回首页</a>
-    <a href="javascript://" @click="showNoLetter = true;">迈出这一步</a>
+    <div class="myLoveLetter-cont">
+      <img src="../../assets/images/logo.png" class="logo-img" alt="">
 
-    <a href="#/write">写情书</a>
+      <div class="myLoveLetter-main">
+        <swiper :options="swiperOption">
+          <swiper-slide v-for="(mail,i) in mails" :key="i">
+            <div class="letter-info">
+              <div class="wm">亲爱的XXX：</div>
+              <div class="letter-m-img">
+                {{mail.content}}
+              </div>
+              <div class="u-info">
+                <img class="u-avatar" v-if="mail.headimgurl !== null" :src="mail.headimgurl" :alt="mail.nickname">
+                <span class="u-name">{{mail.nickname === null ? '匿名好友': mail.nickname}}</span>
+              </div>
+            </div>
+            <div class="letter-total">
+              {{i+1}} / {{mailsTotal}}
+            </div>
+          </swiper-slide>
+          <div class="swiper-button-prev" slot="button-prev"></div>
+          <div class="swiper-button-next" slot="button-next"></div>
+        </swiper>
 
-   <div class="no-letter" v-if="showNoLetter" @click="showNoLetter = false;">
-     <a href="javascript://" @click="showNoLetter = false;">点击复制密钥</a>
+        <div class="myLoveLetter-btns">
+          <a href="#/home" class="myLoveLetter-btn-link"></a>
+          <a href="avascript://" class="myLoveLetter-btn-link" @click="showKeys = true;">迈出这一步</a>
+        </div>
+      </div>
     </div>
+    <div class="myLoveLetter-bottom"></div>
+    <div class="keys-wp" v-if="showKeys" @click="showKeys = false;">复制密钥</div>
   </div>
 </template>
 <style src="./myLoveLetter.scss" lang="scss" scoped></style>
