@@ -2,6 +2,7 @@
 import Vue from 'components/base'
 import { Component, Watch } from 'vue-property-decorator'
 import template from './layout.vue'
+import wxapi from 'util/wxapi'
 
 @Component({
   mixins: [template]
@@ -12,28 +13,11 @@ export default class Layout extends Vue {
   isPlay = true;
 
   async created() {
-    this.isweixin();
   }
 
   async mounted() {
+    wxapi.isweixin();
     this.pagePlayAudio();
-  }
-
-  // 判断是否是微信浏览器
-  isweixin() {
-    const ua = window.navigator.userAgent.toLowerCase();
-    if(ua.match(/MicroMessenger/i) === null) {
-      console.log('这不是微信浏览器')
-      return false;
-    } else {
-      if(ua.match(/MicroMessenger/i)[0] === 'micromessenger'){
-        console.log('这是微信浏览器')
-        return true;
-      } else {
-        console.log('这不是微信浏览器')
-        return false;
-      }
-    }
   }
 
   @Watch('$route')
