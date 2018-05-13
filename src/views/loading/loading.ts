@@ -16,17 +16,17 @@ export default class Loading extends Vue {
     const that = this;
     const loader = new resLoader({
       resources: [
-        '/love-letter/dist/qa/static/img/l_arrow.png',
-        '/love-letter/dist/qa/static/img/loading_projector.png',
-        '/love-letter/dist/qa/static/img/logo.png',
-        '/love-letter/dist/qa/static/img/movie_m.png',
-        '/love-letter/dist/qa/static/img/myletter_btn.png',
-        '/love-letter/dist/qa/static/img/paly_open.png',
-        '/love-letter/dist/qa/static/img/play_close.png',
-        '/love-letter/dist/qa/static/img/r_arrow.png',
-        '/love-letter/dist/qa/static/img/share_bg.png',
-        '/love-letter/dist/qa/static/img/shouye.jpg',
-        '/love-letter/dist/qa/static/img/watchMovie_btns.png'
+        'dist/qa/static/img/l_arrow.png',
+        'dist/qa/static/img/loading_projector.png',
+        'dist/qa/static/img/logo.png',
+        'dist/qa/static/img/movie_m.png',
+        'dist/qa/static/img/myletter_btn.png',
+        'dist/qa/static/img/paly_open.png',
+        'dist/qa/static/img/play_close.png',
+        'dist/qa/static/img/r_arrow.png',
+        'dist/qa/static/img/share_bg.png',
+        'dist/qa/static/img/shouye.jpg',
+        'dist/qa/static/img/watchMovie_btns.png'
       ],
       onStart: function (total) {
         console.log('start:' + total);
