@@ -1,41 +1,32 @@
 <template>
   <div class="watchMovie-wp">
     <div class="watchMovie-cont">
-      <img src="../../assets/images/logo.png" class="logo-img" alt="">
+      <div class="watchMovie-bottom-bg">
+        <div class="watchMovie-main">
+          <div class="letter-info">
+            <div class="wm">亲爱的XXX：</div>
+            <div class="letter-m">
+              {{mail.content}}
+            </div>
+            <div class="u-info">
+              <img class="u-avatar" :src="mail.headimgurl" :alt="mail.nickname">
+              <span class="u-name">{{mail.nickname}}</span>
+            </div>
+          </div>
 
-      <div class="watchMovie-main">
-        <swiper :options="swiperOption">
-          <swiper-slide>
-            <div class="letter-info">
-              <div class="wm">亲爱的XXX：</div>
-              <img src="https://surmon-china.github.io/vue-awesome-swiper/static/images/surmon-6.jpg">
-              <div class="u-info">
-                <img class="u-avatar" src="https://surmon-china.github.io/vue-awesome-swiper/static/images/surmon-6.jpg" alt="">
-                <span class="u-name">已知昵称</span>
-              </div>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="letter-info">
-              <img src="https://surmon-china.github.io/vue-awesome-swiper/static/images/surmon-1.jpg">
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="letter-info">
-              <img src="https://surmon-china.github.io/vue-awesome-swiper/static/images/surmon-3.jpg">
-            </div>
-          </swiper-slide>
-          <div class="swiper-button-prev" slot="button-prev"></div>
-          <div class="swiper-button-next" slot="button-next"></div>
-        </swiper>
+          <div class="btns-wp">
+            <a href="#/home" class="btn-link return-home"></a>
+            <a href="javascript://" class="btn-link watchMovie-link"></a>
+          </div>
 
-        <div class="watchMovie-btns">
-          <a href="#" class="watchMovie-btn-link"></a>
-          <a href="#" class="watchMovie-btn-link"></a>
+          <div class="letter-text"></div>
+
+          <div class="logo-wp">
+            <img class="logo-img" src="../../assets/images/logo.png" alt="中国巨幕">
+          </div>
         </div>
       </div>
     </div>
-    <div class="watchMovie-bottom"></div>
   </div>
 </template>
 <style src="./watchMovie.scss" lang="scss" scoped></style>

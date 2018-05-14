@@ -3,6 +3,7 @@ import Vue from 'components/base'
 import { Component, Watch } from 'vue-property-decorator'
 import template from './layout.vue'
 import wxapi from 'util/wxapi'
+import getjwt from 'util/getjwt'
 
 @Component({
   mixins: [template]
@@ -13,11 +14,13 @@ export default class Layout extends Vue {
   isPlay = true;
 
   async created() {
+    getjwt.check();
   }
 
   async mounted() {
     wxapi.isweixin();
     this.pagePlayAudio();
+    //getjwt.check();
   }
 
   @Watch('$route')

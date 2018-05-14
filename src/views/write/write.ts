@@ -7,5 +7,38 @@ import template from './write.vue'
   mixins: [template]
 })
 export default class Write extends Vue {
+  params = {
+    content: '',
+    to_openid: ''
+  }
 
+  showTips = false;
+  tipText = '';
+
+
+  onSendOut() {
+    if(this.params.content ==='') {
+      this.showTips = true;
+      this.tipText = '内容不能为空';
+      setTimeout(() => {
+        this.showTips = false;
+      },1500);
+    } else {
+      this.postContent(this.params);
+    }
+  }
+
+  // 发送信件
+  async postContent(params) {
+    let res = await this.api.postContent(params);
+    if(res.code === "0") {
+      this.$router.push({path:'/sendOut'});
+    } else {
+      this.showTips = true;
+      this.tipText = res.msg;
+      setTimeout(() => {
+        this.showTips = false;
+      },1500);
+    }
+  }
 }

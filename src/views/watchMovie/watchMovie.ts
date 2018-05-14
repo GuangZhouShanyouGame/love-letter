@@ -4,10 +4,22 @@ import template from './watchMovie.vue'
 
 @Component({mixins: [template]})
 export default class WatchMovie extends Vue {
-  swiperOption = {
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
+
+  mail = {};
+  async created() {
+  }
+
+  async mounted() {
+    //this.getKeyMail();
+  }
+
+  // 获取信件
+  async getKeyMail(keys) {
+    let res = await this.api.getKeyMail({
+      key: keys
+    });
+    if(res.code === "0") {
+      this.mail = res.payload.mail;
     }
   }
 }

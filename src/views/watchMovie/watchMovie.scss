@@ -4,21 +4,26 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #1e100b;
+  background-color: #c1c6cc;
 
   .watchMovie-cont {
     position: relative;
     width: 100%;
     height: 100%;
-    text-align: center;
+    //background: url("../../assets/images/myletter_bg.jpg") no-repeat;
+    background: url("../../assets/images/letter_top_bg.png") no-repeat;
+    background-size: contain;
+    background-position: top center;
   }
 
-  .logo-img {
-    width: (144 / 75) * 1rem;
-    margin-top: (40 /75) * 1rem;
-    vertical-align: middle;
-    outline: none;
-    overflow: hidden;
+  .watchMovie-bottom-bg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: (140 / 75) * 1rem;
+    background: url("../../assets/images/letter_bottom_bg.png") no-repeat;
+    background-size: contain;
+    background-position: bottom center;
   }
 
   .watchMovie-main {
@@ -29,68 +34,67 @@
     position: relative;
     width: (600 / 75) * 1rem;
     height: (700 / 75) * 1rem;
-    margin: ((38 /75) * 1rem) auto 0;
-    background-color: #fff;
-    overflow: hidden;
-  }
-
-  .swiper-button-prev,
-  .swiper-button-next {
-    width: (60/ 75) * 1rem;
-    height: (85 / 75) * 1rem;
-    background-size: (60/ 75) * 1rem (85 / 75) * 1rem;
-    outline: none;
-    text-decoration: none;
-  }
-
-  .swiper-button-prev {
-    background-image: url("../../assets/images/l_arrow.png");
-    left: 0;
-  }
-
-  .swiper-button-next {
-    background-image: url("../../assets/images/r_arrow.png");
-    right: 0;
-  }
-
-  .watchMovie-btns {
-    position: relative;
-    width: (553 / 75) * 1rem;
-    height: (86 / 75) * 1rem;
-    margin: (48 / 75) * 1rem auto 0;
-    background: url("../../assets/images/watchMovie_btns.png") no-repeat;
+    padding: (70 / 75) * 1rem (65 / 75) * 1rem (60 / 75) * 1rem (70 / 75) * 1rem;
+    margin: 0 auto;
+    background: url("../../assets/images/letter_xinzhi_bg.png") no-repeat;
     background-size: contain;
     background-position: top center;
-    text-align: left;
+  }
 
-    .watchMovie-btn-link {
+  .letter-total {
+    margin-top: (40/ 75) * 1rem;
+    font-size: (28 / 75) * 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #343333;
+  }
+
+  .btns-wp {
+    position: relative;
+    margin-top: (83 / 75) * 1rem;
+    text-align: center;
+
+    .btn-link {
       display: inline-block;
-      float: left;
-      width: 50%;
+      width: (250 /75) * 1rem;
       height: (86 / 75) * 1rem;
+      margin: 0 (26 / 75) * 1rem;
       text-decoration: none;
       cursor: pointer;
+
+      &.return-home {
+        background: url("../../assets/images/return_home.png") no-repeat;
+        background-size: contain;
+        background-position: center center;
+      }
+
+      &.watchMovie-link {
+        background: url("../../assets/images/watchMovie_btn.png") no-repeat;
+        background-size: contain;
+        background-position: center center;
+      }
     }
   }
 
   .wm {
-    position: absolute;
-    left: 0;
-    top: (70 / 75) * 1rem;
-    width: 100%;
-    padding-left: (70 / 75) * 1rem;
-    font-size: (25 / 75) * 1rem;
+    position: relative;
+    font-size: (30 / 75) * 1rem;
     font-weight: 500;
     color: #0f0503;
     text-align: left;
   }
 
+  .letter-m {
+    position: relative;
+    margin-top: (80 / 75) * 1rem;
+    height: (420 / 75) *1rem;
+    font-size: (27 /75) * 1rem;
+    color: #0f0503;
+    overflow: hidden;
+  }
+
   .u-info {
-    position: absolute;
-    right: 0;
-    bottom: (40 / 75) * 1rem;
-    width: 100%;
-    padding-right: (67 / 75) * 1rem;
+    position: relative;
     vertical-align: middle;
     text-align: right;
 
@@ -106,20 +110,54 @@
     .u-name {
       display: inline-block;
       margin-left: (10 / 75) * 1rem;
-      font-size: (25 / 75) * 1rem;
-      font-weight: bold;
+      font-size: (30 / 75) * 1rem;
+      font-weight: 500;
       color: #0f0503;
     }
   }
 
-  .watchMovie-bottom {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: (750 / 75) * 1rem;
-    height: (206 / 75) * 1rem;
-    background: url("../../assets/images/movie_m.png") no-repeat;
+  .letter-text {
+    position: relative;
+    width: (571 / 75) * 1rem;
+    height: (20 / 75) * 1rem;
+    margin: (35/ 75) * 1rem auto 0;
+    background: url("../../assets/images/coupon.png") no-repeat;
     background-size: contain;
     background-position: top center;
+  }
+
+  .logo-wp {
+    position: relative;
+    margin-top: (20 / 75) * 1rem;
+    text-align: center;
+
+    .logo-img {
+      width: (144 / 75) * 1rem;
+      height: (60 / 75) * 1rem;
+      vertical-align: middle;
+      outline: none;
+      overflow: hidden;
+    }
+  }
+
+  .keys-wp {
+    z-index: 999;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    vertical-align: middle;
+
+    .btn-fuzhi {
+      display: block;
+      padding: (40 / 75) * 1rem;
+      margin-top: (40 / 75) * 1rem;
+      background-color: #fff;
+      color: #000;
+    }
   }
 }

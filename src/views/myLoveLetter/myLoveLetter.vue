@@ -1,14 +1,12 @@
 <template>
   <div class="myLoveLetter-wp">
     <div class="myLoveLetter-cont">
-      <img src="../../assets/images/logo.png" class="logo-img" alt="">
-
       <div class="myLoveLetter-main">
         <swiper :options="swiperOption" ref="mySwiper">
           <swiper-slide v-for="(mail,i) in mails" :key="i">
             <div class="letter-info">
               <div class="wm">亲爱的XXX：</div>
-              <div class="letter-m-img">
+              <div class="letter-m">
                 {{mail.content}}
               </div>
               <div class="u-info">
@@ -24,16 +22,26 @@
           <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
 
-        <div class="myLoveLetter-btns">
-          <a href="#/home" class="myLoveLetter-btn-link"></a>
-          <a href="javascript://" class="myLoveLetter-btn-link" @click="onStepOut">迈出这一步</a>
+        <div class="btns-wp">
+          <a href="#/home" class="btn-link return-home"></a>
+          <a href="javascript://" class="btn-link send-out" @click="onStepOut"></a>
+        </div>
+
+        <div class="letter-text"></div>
+
+        <div class="logo-wp">
+          <img class="logo-img" src="../../assets/images/logo.png" alt="中国巨幕">
         </div>
       </div>
     </div>
-    <div class="myLoveLetter-bottom"></div>
-    <div class="keys-wp" v-if="showKeys" @click="showKeys = false;">
-      复制密钥
-      <a href="javascript://" class="btn-fuzhi" data-clipboard-text="这是复制内容" @click="fuzhi">复制密钥</a>
+    <div class="keys-wp" v-if="showKeys">
+      <div class="keys-main">
+        <div class="qrcode-wp">
+          <img src="../../assets/images/qr-code.png" class="qr-img" alt="">
+        </div>
+        <a href="javascript:;" class="keys-close" @click="showKeys = false;"></a>
+        <a href="javascript://" class="btn-fuzhi" :data-clipboard-text="keyText" @click="fuzhi"></a>
+      </div>
     </div>
   </div>
 </template>

@@ -21,6 +21,43 @@ export default {
     })
   },
 
+  shares() {
+    return http.post('/cgs/shares', {})
+  },
+
+  // 获取密钥
+  getKey(params) {
+    return http.get('/cgs/mails/' + params.id, {})
+  },
+
+  get24authCode(Code) {
+    return http.get('/jwt-token', {
+      code:Code
+    },'http://auth.24haowan.com')
+  },
+
+  getBoot(params) {
+    return http.post('/cgs/boot', {
+      headimgurl: params.headimgurl,
+      nickname: params.nickname,
+    })
+  },
+
+  postContent (params) {
+    return http.post('/cgs/mails', {
+      content: params.content,
+      to_openid: params.to_openid,
+    })
+  },
+
+   getKeyMail(params) {
+    return http.get('/cgs/keys/' + params.key, {})
+   },
+
+   getTicket(params){
+    return http.get('/cgs/keys/' + params.key + '/ticket', {})
+   },
+
   http: http,
   axios: axios
 }

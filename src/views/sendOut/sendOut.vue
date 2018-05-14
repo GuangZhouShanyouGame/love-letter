@@ -1,10 +1,16 @@
 <template>
   <div class="sendOut-wp">
-    <h1>你的情书已送达</h1>
-    <br/>
-    <a href="#/write">在写一封</a>
-     <a href="#/watchMovie">看电影</a>
-    <a href="#/home">返回首页</a>
+    <div class="sendOut-main">
+      <div class="sendOut-cont">
+        <div class="btns-wp">
+          <div><a href="#/write" class="btn-link write-again"></a></div>
+          <div><a href="#/home" class="btn-link return-home"></a></div>
+        </div>
+        <div class="logo-wp">
+          <img class="logo-img" src="../../assets/images/logo.png" alt="中国巨幕">
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <style src="./sendOut.scss" lang="scss" scoped></style>

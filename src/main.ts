@@ -9,6 +9,8 @@ import 'swiper/dist/css/swiper.css'
 
 Vue.use(VueAwesomeSwiper)
 
+//import 'vue2-animate/dist/vue2-animate.min.css'
+
 // import all icons
 import 'components/icons'
 

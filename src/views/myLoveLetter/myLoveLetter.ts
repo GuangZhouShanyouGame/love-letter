@@ -21,6 +21,7 @@ export default class MyLoveLetter extends Vue {
   }
 
   showKeys = false;
+  keyText = '';
 
   $refs:{
     mySwiper
@@ -31,9 +32,9 @@ export default class MyLoveLetter extends Vue {
   }
 
   async mounted() {
-    console.log(Clipboard)
   }
 
+  // 获取信件列表
   async getMails() {
     let res = await this.api.getMails({});
     if(res.code === "0") {
@@ -43,11 +44,25 @@ export default class MyLoveLetter extends Vue {
     }
   }
 
+  // 获取密钥
+  async getKey(Id) {
+    let res = await this.api.getKey({
+      id: Id
+    });
+    if(res.code === "0") {
+      this.keyText = res.payload.key;
+    }
+  }
+
   // 迈出这一步
   onStepOut() {
-    // console.log(this.$refs.mySwiper.swiper.snapIndex)
+    const item = this.$refs.mySwiper.swiper.snapIndex;
+    const Id = this.mails[item].id;
+    this.getKey(Id);
     this.showKeys = true;
   }
+
+
 
   // 复制密钥
   fuzhi(){
