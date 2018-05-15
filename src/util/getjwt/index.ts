@@ -13,13 +13,7 @@ export default {
         expires:7
       });
       const url = window.location.href.split('?')[0];
-      const beforeLoginUrl = cookie.cookie.get('beforeLoginUrl');
-      if(beforeLoginUrl === undefined) {
-        window.location.href = url + '#/loading';
-      } else {
-        window.location.href = url + '#' + beforeLoginUrl;
-        cookie.cookie.set('beforeLoginUrl', '');
-      }
+      window.location.href = url + '#/loading';
     } else {
       return false;
     }
