@@ -3,12 +3,13 @@ import Vue from 'components/base'
 import { Component } from 'vue-property-decorator'
 import template from './myLoveLetter.vue'
 import * as Clipboard from 'clipboard'
+import wxapi from 'util/wxapi'
+import conFig from 'util/config'
 
 @Component({
   mixins: [template]
 })
 export default class MyLoveLetter extends Vue {
-  showNoLetter = false;
 
   mails = [];
   mailsTotal = 0;
@@ -23,6 +24,11 @@ export default class MyLoveLetter extends Vue {
   showKeys = false;
   keyText = '';
 
+  showFlower = false;
+
+  showShareTips = false;
+  shareTipText = '';
+
   $refs:{
     mySwiper
   }
@@ -32,6 +38,7 @@ export default class MyLoveLetter extends Vue {
   }
 
   async mounted() {
+    wxapi.wxRegister(this.wxRegCallback);
   }
 
   // 获取信件列表
@@ -51,6 +58,14 @@ export default class MyLoveLetter extends Vue {
     });
     if(res.code === "0") {
       this.keyText = res.payload.key;
+    }
+
+    if(res.code === '1000') {
+      this.showFlower = true;
+    }
+
+    if(res.code === '1001') {
+      this.$router.push({path: '/home'});
     }
   }
 
@@ -79,5 +94,87 @@ export default class MyLoveLetter extends Vue {
        console.error('Action:', e.action);
        console.error('Trigger:', e.trigger);
     });
+  }
+
+  //[wxRegCallback 用于微信JS-SDK回调]
+  wxRegCallback () {
+    this.wxShareTimeline();
+    this.wxShareAppMessage();
+  }
+
+  // 分享到朋友圈
+  wxShareTimeline() {
+    const that = this;
+    let opstion = {
+      title: wxapi.opstions.title, // 分享标题
+      link: conFig.host + '#/write', // 分享链接
+      imgUrl: wxapi.opstions.imgUrl,// 分享图标
+      success() {
+        that.showKeys = false;
+        that.showFlower = false;
+        setTimeout(() => {
+          that.showShareTips = true;
+          that.shareTipText = '分享成功'
+        },1000);
+
+        setTimeout(() => {
+          that.showShareTips = false;
+        },2500);
+        that.shares();
+      },
+      error() {
+        that.showKeys = false;
+        setTimeout(() => {
+          that.showShareTips = true;
+          that.shareTipText = '分享失败'
+        },1000);
+
+        setTimeout(() => {
+          that.showShareTips = false;
+        },2500)
+      }
+    }
+    wxapi.ShareTimeline(opstion);
+  }
+
+  // 分享给朋友
+  wxShareAppMessage() {
+    const that = this;
+    let opstion = {
+      title: wxapi.opstions.title, // 分享标题
+      desc: wxapi.opstions.desc,
+      link: conFig.host + '#/write', // 分享链接
+      imgUrl: wxapi.opstions.imgUrl,// 分享图标
+      success() {
+        that.showKeys = false;
+        that.showFlower = false;
+        setTimeout(() => {
+          that.showShareTips = true;
+          that.shareTipText = '分享成功'
+        },1000);
+
+        setTimeout(() => {
+          that.showShareTips = false;
+        },2500);
+        that.shares();
+      },
+      error() {
+        that.showKeys = false;
+        setTimeout(() => {
+          that.showShareTips = true;
+          that.shareTipText = '分享失败'
+        },1000);
+
+        setTimeout(() => {
+          that.showShareTips = false;
+        },2500)
+      }
+    }
+    wxapi.ShareAppMessage(opstion);
+  }
+
+  // 分享成功时调用
+  async shares() {
+    let res = await this.api.shares();
   }
 }

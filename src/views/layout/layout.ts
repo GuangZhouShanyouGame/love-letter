@@ -3,7 +3,7 @@ import Vue from 'components/base'
 import { Component, Watch } from 'vue-property-decorator'
 import template from './layout.vue'
 import wxapi from 'util/wxapi'
-import getjwt from 'util/getjwt'
+import * as cookie from 'cookie_js'
 
 @Component({
   mixins: [template]
@@ -14,18 +14,26 @@ export default class Layout extends Vue {
   isPlay = true;
 
   async created() {
-    getjwt.check();
   }
 
   async mounted() {
     wxapi.isweixin();
     this.pagePlayAudio();
-    //getjwt.check();
+
+    const auth_data = JSON.parse(cookie.cookie.get('auth_data'))
+    this.getBoot({
+      headimgurl: auth_data.headimgurl,
+      nickname: auth_data.nickname
+    })
   }
 
   @Watch('$route')
   onRouteChanged(val: string, oldVal: string) {
     this.pagePlayAudio();
+  }
+
+  async getBoot(params) {
+    let res = await this.api.getBoot(params);
   }
 
   playAudio() {

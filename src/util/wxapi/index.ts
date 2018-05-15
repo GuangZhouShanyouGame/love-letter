@@ -2,6 +2,11 @@ import * as wx from 'weixin-js-sdk'
 import api from 'util/api'
 
 const wxApi = {
+  opstions:{
+    title: '为TA留下一封匿名情书',
+    desc: 'desc',
+    imgUrl: ''
+  },
   // 判断是否是微信浏览器
   isweixin() {
     const ua = window
@@ -13,7 +18,6 @@ const wxApi = {
       return false;
     } else {
       if (ua.match(/MicroMessenger/i)[0] === 'micromessenger') {
-        //console.log('这是微信浏览器')
         return true;
       } else {
         //console.log('这不是微信浏览器')

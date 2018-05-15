@@ -2,6 +2,9 @@ import axios from 'axios'
 import * as qs from 'qs'
 import { AxiosRequestConfig, HttpResquest } from 'types/interface'
 import env from 'env'
+import * as cookie from 'cookie_js'
+
+const auth_data = JSON.parse(cookie.cookie.get('auth_data'))
 
 enum HTTPERROR {
   LOGICERROR,
@@ -27,7 +30,8 @@ methods.forEach(v => {
     const axiosConfig: AxiosRequestConfig = {
       method: v,
       url,
-      baseURL: baseUrl || DEFAULTCONFIG.baseURL
+      baseURL: baseUrl || DEFAULTCONFIG.baseURL,
+      headers:{'Authorization': 'Bearer ' + auth_data.jwt}
     }
     const instance = axios.create(DEFAULTCONFIG)
 

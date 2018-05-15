@@ -39,7 +39,7 @@ export default {
   getBoot(params) {
     return http.post('/cgs/boot', {
       headimgurl: params.headimgurl,
-      nickname: params.nickname,
+      nickname: params.nickname
     })
   },
 

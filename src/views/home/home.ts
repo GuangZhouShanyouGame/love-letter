@@ -49,30 +49,30 @@ export default class Home extends Vue {
   wxShareTimeline() {
     const that = this;
     let opstion = {
-      title: '为TA留下一封匿名情书', // 分享标题
-      link: conFig.host + '#/write',      // 分享链接
-      imgUrl: 'http://www.jzdlink.com/wordpress/wp-content/themes/wordpress_thems/images/lib/logo.png',// 分享图标
+      title: wxapi.opstions.title, // 分享标题
+      link: conFig.host + '#/write', // 分享链接
+      imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
         that.showNoLetter = false;
         setTimeout(() => {
-          this.showShareTips = true;
-          this.shareTipText = '分享成功'
+          that.showShareTips = true;
+          that.shareTipText = '分享成功'
         },1000);
 
         setTimeout(() => {
-          this.showShareTips = false;
+          that.showShareTips = false;
         },2500);
         that.shares();
       },
       error() {
         that.showNoLetter = false;
         setTimeout(() => {
-          this.showShareTips = true;
-          this.shareTipText = '分享失败'
+          that.showShareTips = true;
+          that.shareTipText = '分享失败'
         },1000);
 
         setTimeout(() => {
-          this.showShareTips = false;
+          that.showShareTips = false;
         },2500)
       }
     }
@@ -83,31 +83,31 @@ export default class Home extends Vue {
   wxShareAppMessage() {
     const that = this;
     let opstion = {
-      title: '为TA留下一封匿名情书', // 分享标题
-      desc: '开始你们的故事吧',
-      link: conFig.host + '#/write',      // 分享链接
-      imgUrl: 'http://www.jzdlink.com/wordpress/wp-content/themes/wordpress_thems/images/lib/logo.png',// 分享图标
+      title: wxapi.opstions.title, // 分享标题
+      desc: wxapi.opstions.desc,
+      link: conFig.host + '#/write', // 分享链接
+      imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
         that.showNoLetter = false;
         setTimeout(() => {
-          this.showShareTips = true;
-          this.shareTipText = '分享成功'
+          that.showShareTips = true;
+          that.shareTipText = '分享成功'
         },1000);
 
         setTimeout(() => {
-          this.showShareTips = false;
+          that.showShareTips = false;
         },2500);
         that.shares();
       },
       error() {
         that.showNoLetter = false;
         setTimeout(() => {
-          this.showShareTips = true;
-          this.shareTipText = '分享失败'
+          that.showShareTips = true;
+          that.shareTipText = '分享失败'
         },1000);
 
         setTimeout(() => {
-          this.showShareTips = false;
+          that.showShareTips = false;
         },2500)
       }
     }

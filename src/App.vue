@@ -14,7 +14,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  background-color: #1e100b;
+  background-color: #c1c6cc;
 }
 </style>
 <script>

@@ -65,7 +65,7 @@ let routes: Router.RouteConfig[] = [
         name: 'watchMovie',
         path: '/watchMovie',
         component:getView('watchMovie')
-      },
+      }
     ]
   }
 ]
