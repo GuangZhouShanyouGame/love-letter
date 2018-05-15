@@ -16,7 +16,12 @@ export default class Auth extends Vue {
         getjwt.getJwt();
       } else {
         const beforeLoginUrl = cookie.cookie.get('beforeLoginUrl');
-        this.$router.push({path:'/loading'});
+        if(beforeLoginUrl === undefined) {
+          window.location.href = url + '#/loading';
+        } else {
+          window.location.href = url + '#' + beforeLoginUrl;
+          cookie.cookie.set('beforeLoginUrl', '');
+        }
         cookie.cookie.set('beforeLoginUrl', '')
       }
     } else {
@@ -26,7 +31,7 @@ export default class Auth extends Vue {
         const redirect_uri = "http://auth.24haowan.com/auth?wxappid=" + wxappid + "&redirect_uri=" + newUrl + "&id=666&type=snsapi_userinfo";
         location.href = redirect_uri;
       }else {
-        this.$router.push({path:'/loading'});
+        window.location.href = url + '#/loading';
       }
     }
   }

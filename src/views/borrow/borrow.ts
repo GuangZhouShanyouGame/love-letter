@@ -7,6 +7,14 @@ import template from './borrow.vue'
   mixins: [template]
 })
 export default class Borrow extends Vue {
+
+  params = {
+    content: '',
+    to_openid: ''
+  }
+
+  openid = '';
+
   swiperOption = {
     navigation: {
       nextEl: '.swiper-button-next',
@@ -169,5 +177,159 @@ export default class Borrow extends Vue {
       html:'<p>你想要什么，</p><p>我全都给你买。</p>',
       name: '《请回答1988》'
     },
-  ]
+    {
+      content: '一次就好，我带你去看天荒地老。',
+      html:'<p>一次就好，</p><p>我带你去看天荒地老。</p>',
+      name: '《夏洛特烦恼》'
+    },
+    {
+      content: '在有生的瞬间能遇到你，竟花光所有运气。',
+      html:'<p>在有生的瞬间能遇到你，</p><p>竟花光所有运气。</p>',
+      name: '《明年今日》'
+    },
+    {
+      content: '我想就这样牵着你的手不放开，爱可不可以简简单单没有伤害。',
+      html:'<p>我想就这样牵着你的手不放开，</p><p>爱可不可以简简单单没有伤害。</p>',
+      name: '《简单爱》'
+    },
+    {
+      content: '我遇见你，是最美丽的意外。',
+      html:'<p>我遇见你，</p><p>是最美丽的意外。</p>',
+      name: '《遇见》'
+    },
+    {
+      content: '天青色在等雨，而我在等你。',
+      html:'<p>天青色在等雨，</p><p>而我在等你。</p>',
+      name: '《青花瓷》'
+    },
+    {
+      content: '看不见你的笑我怎么睡得着。',
+      html:'<p>看不见你的笑我怎么睡得着。</p>',
+      name: '《彩虹》'
+    },
+    {
+      content: '我说今晚月光那么美，你说是的。',
+      html:'<p>我说今晚月光那么美，</p><p>你说是的。</p>',
+      name: '《我说今晚月光那么美，你说是的》'
+    },
+    {
+      content: '我说今晚月光那么美，你说是的。',
+      html:'<p>我说今晚月光那么美，</p><p>你说是的。</p>',
+      name: '《我说今晚月光那么美，你说是的》'
+    },
+    {
+      content: '我在忧愁时想你，就像在冬季想太阳；我在快乐时想你，就像在骄阳下想树荫。',
+      html:'<p>我在忧愁时想你，</p><p>就像在冬季想太阳；</p><p>我在快乐时想你，</p><p>就像在骄阳下想树荫。</p>',
+      name: ''
+    },
+    {
+      content: '约吗？',
+      html:'<p>约吗？</p>',
+      name: ''
+    },
+    {
+      content: '春风再美也比不上你的笑，没见过你的人不会明了。',
+      html:'<p>春风再美也比不上你的笑，</p><p>没见过你的人不会明了。</p>',
+      name: ''
+    },
+    {
+      content: '余生请你多指教。',
+      html:'<p>余生请你多指教。</p>',
+      name: ''
+    },
+    {
+      content: '我给你买皮肤。',
+      html:'<p>我给你买皮肤。</p>',
+      name: ''
+    },
+    {
+      content: '你是如此的胖！以至于把我的心全部塞满。',
+      html:'<p>你是如此的胖！</p><p>以至于把我的心全部塞满。</p>',
+      name: ''
+    },
+    {
+      content: '我走过最长的路就是你的套路。',
+      html:'<p>我走过最长的路就是你的套路。</p>',
+      name: ''
+    },
+    {
+      content: '你知道为什么现在犯罪率这么高吗？因为你美丽的五官是是众人犯罪的开端。',
+      html:'<p>你知道为什么现在犯罪率这么高吗？</p><p>因为你美丽的五官是是众人犯罪的开端。</p>',
+      name: ''
+    },
+    {
+      content: '你知道我是什么血型么？我是你的理想型。',
+      html:'<p>你知道我是什么血型么？</p><p>我是你的理想型。</p>',
+      name: ''
+    },
+    {
+      content: '你有打火机么？没有。那你是怎么点燃我的心。',
+      html:'<p>你有打火机么？</p><p>没有。</p><p>那你是怎么点燃我的心。</p>',
+      name: ''
+    },
+    {
+      content: '你会喜欢我吗？不会。那我教你啊！',
+      html:'<p>你会喜欢我吗？</p><p>不会。</p><p>那我教你啊！</p>',
+      name: ''
+    },
+    {
+      content: '别人都说你的脸很圆，但我觉得你的脸还蛮方的。为什么？不然怎么这么正。',
+      html:'<p>别人都说你的脸很圆，</p><p>但我觉得你的脸还蛮方的。</p><p>为什么？不然怎么这么正。</p>',
+      name: ''
+    },
+    {
+      content: '最近天气很冷你知道要怎么取暖吗？怎么取暖？我不知道，但我知道怎么娶你。',
+      html:'<p>最近天气很冷你知道要怎么取暖吗？</p><p>怎么取暖？</p><p>我不知道，</p><p>但我知道怎么娶你。</p>',
+      name: ''
+    },
+    {
+      content: '我最近学会一个技能，我只要看你的外表就知道你是什么星座，我觉得你是：上帝的杰作。',
+      html:'<p>我最近学会一个技能，</p><p>我只要看你的外表就知道你是什么星座，</p><p>我觉得你是：上帝的杰作。</p>',
+      name: ''
+    },
+    {
+      content: '过年我都不收红包了。为什么？因为我只收你这个小宝宝。',
+      html:'<p>过年我都不收红包了。</p><p>为什么？</p><p>因为我只收你这个小宝宝。</p>',
+      name: ''
+    },
+  ];
+
+  total = 0;
+
+  showTips = false;
+  tipText = '';
+
+  async mounted() {
+    this.openid = this.$route.params.openid;
+    this.params.to_openid = this.$route.params.openid;
+
+    this.total = this.borrowData.length;
+    const num = this.randNum(0,this.total);
+    this.$refs.mySwiper.swiper.slideTo(num, 0, false)
+  }
+
+  //获取范围内的随机数
+  randNum(minnum , maxnum){
+    return Math.floor(minnum + Math.random() * (maxnum - minnum));
+  }
+
+  onSendOut() {
+    const item = this.$refs.mySwiper.swiper.snapIndex;
+    this.params.content = this.borrowData[item].content;
+    this.postContent(this.params);
+  }
+
+  // 发送信件
+  async postContent(params) {
+    let res = await this.api.postContent(params);
+    if(res.code === "0") {
+      this.$router.push({path:'/sendOut/'+ this.openid});
+    } else {
+      this.showTips = true;
+      this.tipText = res.msg;
+      setTimeout(() => {
+        this.showTips = false;
+      },1500);
+    }
+  }
 }

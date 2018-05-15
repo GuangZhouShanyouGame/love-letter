@@ -12,8 +12,15 @@ export default class Write extends Vue {
     to_openid: ''
   }
 
+  openid = '';
+
   showTips = false;
   tipText = '';
+
+  async mounted() {
+    this.openid = this.$route.params.openid;
+    this.params.to_openid = this.$route.params.openid;
+  }
 
 
   onSendOut() {
@@ -32,7 +39,7 @@ export default class Write extends Vue {
   async postContent(params) {
     let res = await this.api.postContent(params);
     if(res.code === "0") {
-      this.$router.push({path:'/sendOut'});
+      this.$router.push({path:'/sendOut/'+ this.openid});
     } else {
       this.showTips = true;
       this.tipText = res.msg;

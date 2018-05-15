@@ -4,9 +4,9 @@
       <div class="watchMovie-bottom-bg">
         <div class="watchMovie-main">
           <div class="letter-info">
-            <div class="wm">亲爱的XXX：</div>
+            <div class="wm">亲爱的{{auth_data.nickname}}：</div>
             <div class="letter-m">
-              {{mail.content}}
+              <div v-html="mail.content"></div>
             </div>
             <div class="u-info">
               <img class="u-avatar" :src="mail.headimgurl" :alt="mail.nickname">

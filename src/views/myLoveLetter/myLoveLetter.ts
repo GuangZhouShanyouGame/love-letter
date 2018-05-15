@@ -47,7 +47,6 @@ export default class MyLoveLetter extends Vue {
     if(res.code === "0") {
       this.mails = res.payload.mails;
       this.mailsTotal = res.payload.mails.length;
-      //this.$refs.mySwiper.swiper.slideTo(2, 1000, false)
     }
   }
 

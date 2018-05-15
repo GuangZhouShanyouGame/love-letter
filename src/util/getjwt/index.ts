@@ -12,8 +12,14 @@ export default {
       cookie.cookie.set('auth_data', JSON.stringify(data),{
         expires:7
       });
-
-      (<any>window).auth_data = JSON.stringify(data);
+      const url = window.location.href.split('?')[0];
+      const beforeLoginUrl = cookie.cookie.get('beforeLoginUrl');
+      if(beforeLoginUrl === undefined) {
+        window.location.href = url + '#/loading';
+      } else {
+        window.location.href = url + '#' + beforeLoginUrl;
+        cookie.cookie.set('beforeLoginUrl', '');
+      }
     } else {
       return false;
     }

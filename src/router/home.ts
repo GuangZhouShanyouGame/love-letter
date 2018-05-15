@@ -48,22 +48,22 @@ let routes: Router.RouteConfig[] = [
       },
       {
         name: 'write',
-        path: '/write',
+        path: '/write/:openid',
         component:getView('write')
       },
       {
         name: 'borrow',
-        path: '/borrow',
+        path: '/borrow/:openid',
         component:getView('borrow')
       },
       {
         name: 'sendOut',
-        path: '/sendOut',
+        path: '/sendOut/:openid',
         component:getView('sendOut')
       },
       {
         name: 'watchMovie',
-        path: '/watchMovie',
+        path: '/watchMovie/:keys',
         component:getView('watchMovie')
       }
     ]

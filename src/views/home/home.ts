@@ -3,6 +3,7 @@ import { Component, Watch, Prop } from 'vue-property-decorator'
 import template from './home.vue'
 import wxapi from 'util/wxapi'
 import conFig from 'util/config'
+import * as cookie from 'cookie_js'
 
 @Component({
   mixins: [template],
@@ -15,11 +16,15 @@ export default class Home extends Vue {
   //   console.log(res.content)
   // }
 
+  auth_data = {};
+
   showNoLetter = false;
   showShareTips = false;
   shareTipText = '';
 
   async mounted() {
+    this.auth_data = JSON.parse(cookie.cookie.get('auth_data'));
+    console.log(this.auth_data)
     wxapi.wxRegister(this.wxRegCallback);
   }
 
@@ -50,7 +55,7 @@ export default class Home extends Vue {
     const that = this;
     let opstion = {
       title: wxapi.opstions.title, // 分享标题
-      link: conFig.host + '#/write', // 分享链接
+      link: conFig.host + '#/write/' + (<any>that.auth_data).openid, // 分享链接
       imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
         that.showNoLetter = false;
@@ -85,7 +90,7 @@ export default class Home extends Vue {
     let opstion = {
       title: wxapi.opstions.title, // 分享标题
       desc: wxapi.opstions.desc,
-      link: conFig.host + '#/write', // 分享链接
+      link: conFig.host + '#/write/'+ (<any>that.auth_data).openid, // 分享链接
       imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
         that.showNoLetter = false;
