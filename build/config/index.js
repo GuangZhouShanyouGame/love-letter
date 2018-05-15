@@ -1,7 +1,7 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 var APP_ENV = process.env.APP_ENV || 'dev'
-var STATICDOMAIN = '/love-letter'; // 静态资源访问域名（CDN）
+var STATICDOMAIN = 'http://24haowan-cdn.shanyougame.com/dingzhi/love-letter'; // 静态资源访问域名（CDN）
 
 module.exports = {
   build: {

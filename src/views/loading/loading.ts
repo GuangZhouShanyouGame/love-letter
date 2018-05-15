@@ -2,7 +2,6 @@ import Vue from 'components/base'
 import {Component, Watch} from 'vue-property-decorator'
 import template from './loading.vue'
 import * as resLoader from '../../assets/js/resLoader.js'
-import conFig from 'util/config'
 
 @Component({mixins: [template]})
 export default class Loading extends Vue {
@@ -15,6 +14,9 @@ export default class Loading extends Vue {
 
   async mounted() {
     const that = this;
+    const conFig = {
+      host: 'http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/dist/qa'
+    };
     const loader = new resLoader({
       resources: [
         conFig.host + '/static/img/coupon.png',
