@@ -12,6 +12,8 @@ export default class Write extends Vue {
     to_openid: ''
   }
 
+  showBrandEgg = false;
+
   openid = '';
 
   showTips = false;

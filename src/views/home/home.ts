@@ -24,7 +24,6 @@ export default class Home extends Vue {
 
   async mounted() {
     this.auth_data = JSON.parse(cookie.cookie.get('auth_data'));
-    console.log(this.auth_data)
     wxapi.wxRegister(this.wxRegCallback);
   }
 

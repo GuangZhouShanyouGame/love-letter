@@ -11,6 +11,17 @@ export default class WatchMovie extends Vue {
   keys = '';
 
   mail = {};
+
+  showTicketFinish = false;
+
+  showTicket = false;
+
+  ticketcode = '';
+
+  ticketInfo = {};
+
+  showBrandEgg = false;
+
   async created() {
   }
 
@@ -27,6 +38,24 @@ export default class WatchMovie extends Vue {
     });
     if(res.code === "0") {
       this.mail = res.payload.mail;
+    }
+  }
+
+  onWatchMovie() {
+    this.getTicket({key: this.keys});
+  }
+
+  //
+  async getTicket(params) {
+    let res = await this.api.getTicket(params);
+
+    if(res.code === "0") {
+      this.ticketInfo = res.payload;
+      this.showTicket = true;
+    }
+
+    if(res.code === "1002") {
+      this.showTicketFinish = true;
     }
   }
 }

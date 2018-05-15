@@ -8,4 +8,4 @@
     </transition>
   </div>
 </template>
-<style src="./layout.scss" lang="scss" scoped></style>
+<style src="./layout.scss" lang="scss"></style>

@@ -16,16 +16,35 @@
 
           <div class="btns-wp">
             <a href="#/home" class="btn-link return-home"></a>
-            <a href="javascript://" class="btn-link watchMovie-link"></a>
+            <a href="javascript://" class="btn-link watchMovie-link" @click="onWatchMovie"></a>
           </div>
 
           <div class="letter-text"></div>
 
           <div class="logo-wp">
-            <img class="logo-img" src="../../assets/images/logo.png" alt="中国巨幕">
+            <img class="logo-img" src="../../assets/images/logo.png" @click="showBrandEgg = true;" alt="中国巨幕">
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="ticket-finish" v-if="showTicketFinish">
+      <div class="ticketFinish-cont">
+        <a href="javascript:;" class="ticketFinish-close" @click="showTicketFinish = false;"></a>
+        <a href="javascript:;" class="buy-tickets"></a>
+      </div>
+    </div>
+
+    <div class="ticket" v-if="showTicket">
+      <div class="ticket-cont">
+        <div class="ticket-code">{{ticketInfo.film_code}}</div>
+        <a href="javascript:;" class="ticket-close" @click="showTicket = false;"></a>
+        <a :href="ticketInfo.url" class="receive-tickets"></a>
+      </div>
+    </div>
+
+    <div class="brand-egg" v-if="showBrandEgg" @click="showBrandEgg = false;">
+      <div class="brand-egg-cont"></div>
     </div>
   </div>
 </template>

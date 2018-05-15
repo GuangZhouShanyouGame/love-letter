@@ -182,4 +182,97 @@
       color: #000;
     }
   }
+
+  .ticket-finish {
+    z-index: 99;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: (54 / 75) * 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+
+    .ticketFinish-cont {
+      position: relative;
+      width: (610 / 75) * 1rem;
+      height: (948 / 75) * 1rem;
+      margin: 0 auto;
+      background: url("../../assets/images/ticket_finish.png") no-repeat;
+      background-size: contain;
+      background-position: top center;
+
+      .ticketFinish-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: (70 / 75) * 1rem;
+        height: (70 / 75) * 1rem;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .buy-tickets {
+        position: absolute;
+        left: (171 / 75) * 1rem;
+        bottom: (69 / 75) * 1rem;
+        width: (252 / 75) * 1rem;
+        height: (86 / 75) * 1rem;
+        cursor: pointer;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .ticket {
+    z-index: 99;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: (54 / 75) * 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+
+    .ticket-cont {
+      position: relative;
+      width: (626 / 75) * 1rem;
+      height: (994 / 75) * 1rem;
+      margin: 0 auto;
+      background: url("../../assets/images/ticket.png") no-repeat;
+      background-size: contain;
+      background-position: top center;
+
+      .ticket-code {
+        position: relative;
+        padding-top: (250 / 75 ) * 1rem;
+        font-size: (48 / 75) * 1rem;
+        font-weight: bold;
+        color: #fff;
+        text-align: center;
+      }
+
+      .ticket-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: (70 / 75) * 1rem;
+        height: (70 / 75) * 1rem;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .receive-tickets {
+        position: absolute;
+        left: (146 / 75) * 1rem;
+        bottom: (40 / 75) * 1rem;
+        width: (251 / 75) * 1rem;
+        height: (87 / 75) * 1rem;
+        cursor: pointer;
+        text-decoration: none;
+      }
+    }
+  }
 }

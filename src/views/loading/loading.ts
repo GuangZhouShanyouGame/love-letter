@@ -58,7 +58,9 @@ export default class Loading extends Vue {
         conFig.host + '/static/img/write-again.png',
         conFig.host + '/static/img/write-sendOut.png',
         conFig.host + '/static/img/flower_heart.png',
-        conFig.host + '/static/img/share.png'
+        conFig.host + '/static/img/ticket_finish.png',
+        conFig.host + '/static/img/ticket.png',
+        conFig.host + '/static/img/brand_egg.png'
       ],
       onStart: function (total) {
         console.log('start:' + total);

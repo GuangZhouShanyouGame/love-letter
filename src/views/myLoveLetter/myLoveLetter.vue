@@ -31,7 +31,7 @@
           <div class="letter-text"></div>
 
           <div class="logo-wp">
-            <img class="logo-img" src="../../assets/images/logo.png" alt="中国巨幕">
+            <img class="logo-img" src="../../assets/images/logo.png" @click="showBrandEgg = false;" alt="中国巨幕">
           </div>
         </div>
       </div>
@@ -50,6 +50,10 @@
     </div>
 
     <div class="share-tips" v-if="showShareTips">{{shareTipText}}</div>
+
+    <div class="brand-egg" v-if="showBrandEgg" @click="showBrandEgg = false;">
+      <div class="brand-egg-cont"></div>
+    </div>
   </div>
 </template>
 <style src="./myLoveLetter.scss" lang="scss" scoped></style>

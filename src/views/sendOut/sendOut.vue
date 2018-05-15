@@ -8,17 +8,21 @@
         <div class="sendOut-cont">
           <div class="btns-wp">
             <div>
-              <a href="#/write" class="btn-link write-again"></a>
+              <a :href="'#/write/'+openid" class="btn-link write-again"></a>
             </div>
             <div>
               <a href="#/home" class="btn-link return-home"></a>
             </div>
           </div>
           <div class="logo-wp">
-            <img class="logo-img" src="../../assets/images/logo.png" alt="中国巨幕">
+            <img class="logo-img" src="../../assets/images/logo.png" @click="showBrandEgg = true;" alt="中国巨幕">
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="brand-egg" v-if="showBrandEgg" @click="showBrandEgg = false;">
+      <div class="brand-egg-cont"></div>
     </div>
   </div>
 </template>

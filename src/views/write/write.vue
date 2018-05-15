@@ -13,13 +13,17 @@
             <a href="javascript:;" class="btn-link write-sendOut-btn" @click="onSendOut"></a>
           </div>
           <div class="logo-wp">
-            <img class="logo-img" src="../../assets/images/logo.png" alt="中国巨幕">
+            <img class="logo-img" src="../../assets/images/logo.png" @click="showBrandEgg = true;" alt="中国巨幕">
           </div>
         </div>
       </div>
     </div>
 
     <div class="tips" v-if="showTips">{{tipText}}</div>
+
+    <div class="brand-egg" v-if="showBrandEgg" @click="showBrandEgg = false;">
+      <div class="brand-egg-cont"></div>
+    </div>
   </div>
 </template>
 <style src="./write.scss" lang="scss" scoped></style>

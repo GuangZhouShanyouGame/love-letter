@@ -7,5 +7,11 @@ import template from './sendOut.vue'
   mixins: [template]
 })
 export default class SendOut extends Vue {
+  showBrandEgg = false;
 
+  openid = '';
+
+  async mounted() {
+    this.openid = this.$route.params.openid;
+  }
 }

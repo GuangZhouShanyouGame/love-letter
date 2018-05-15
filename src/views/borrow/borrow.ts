@@ -13,6 +13,8 @@ export default class Borrow extends Vue {
     to_openid: ''
   }
 
+  showBrandEgg = false;
+
   openid = '';
 
   swiperOption = {
