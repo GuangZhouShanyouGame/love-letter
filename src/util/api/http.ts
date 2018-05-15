@@ -4,7 +4,12 @@ import { AxiosRequestConfig, HttpResquest } from 'types/interface'
 import env from 'env'
 import * as cookie from 'cookie_js'
 
-const auth_data = JSON.parse(cookie.cookie.get('auth_data'))
+let auth_data = '';
+const authData = cookie.cookie.get('auth_data');
+if(authData !== undefined) {
+  auth_data = JSON.parse(authData)
+}
+
 
 enum HTTPERROR {
   LOGICERROR,
