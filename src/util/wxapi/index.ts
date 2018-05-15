@@ -5,7 +5,7 @@ const wxApi = {
   opstions:{
     title: '为TA留下一封匿名情书',
     desc: 'desc',
-    imgUrl: ''
+    imgUrl: 'http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/dist/qa//static/img/share.png'
   },
   // 判断是否是微信浏览器
   isweixin() {
