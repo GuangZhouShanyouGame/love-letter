@@ -2,13 +2,12 @@ import axios from 'axios'
 import * as qs from 'qs'
 import { AxiosRequestConfig, HttpResquest } from 'types/interface'
 import env from 'env'
-import * as cookie from 'cookie_js'
+// import * as cookie from 'cookie_js'
 
 let auth_data = '';
 let jwt = '';
-
-const authData = cookie.cookie.get('auth_data');
-if(authData) {
+const authData = localStorage.getItem('auth_data');
+if(authData !== null) {
   auth_data = JSON.parse(authData);
   jwt = (<any>auth_data).jwt;
 }

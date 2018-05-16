@@ -33,9 +33,7 @@ export default class Home extends Vue {
 
   async getMails() {
     let res = await this.api.getMails({});
-    alert(res);
     if(res.code === "0") {
-      alert('请求成功');
       if(res.payload.mails.length > 0) {
         this.$router.push({path:'/myLoveLetter'});
       } else {
@@ -46,7 +44,6 @@ export default class Home extends Vue {
 
   // 点击我的情书按钮
   onMails() {
-    alert('点击了我的情书')
     this.getMails();
   }
 
