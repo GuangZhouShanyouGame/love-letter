@@ -4,23 +4,24 @@ import * as cookie from 'cookie_js'
 
 export default {
   async getJwt() {
+
     const {href} = location;
+    const host = window.location.host;
+    const pathname = window.location.pathname;
+
     const {hw_auth_code} = this.formatQuery(href);
-    const res = await api.get24authCode(hw_auth_code);
+    const newhw_auth_code = hw_auth_code.split('#/')[0];
+    const res = await api.get24authCode(newhw_auth_code);
     if(res.code === 0) {
       const data = res.data;
       cookie.cookie.set('auth_data', JSON.stringify(data),{
         expires:7
       });
-      //alert('步骤12：' + cookie.cookie.get('auth_data'))
-      //alert('步骤12：' + window.location.href.split('?')[0])
       const url = window.location.href.split('?')[0];
-      // alert('14:'+ url + '#/loading')
-      window.location.href = "http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/index.html?hw_auth_code="+ hw_auth_code + '#/loading';
-      //window.location.href = url + '#/loading';
+      window.location.href = 'http://' + host + pathname + '?loveletter=#loading';
+      //window.location.href = "http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/index.html?loveletter=#/loading";
       return false;
     } else {
-      // alert('步骤13：' + window.location.href.split('?')[0])
       return false;
     }
   },
@@ -45,7 +46,7 @@ export default {
       const result = {};
       const queryFormat = query
         .split('?')[1]
-        .split('#/');
+        .split('&');
       queryFormat.map((v) => {
         const formatData = v.split('=');
         result[formatData[0]] = formatData[1];
