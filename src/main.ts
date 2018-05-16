@@ -49,7 +49,9 @@ router.beforeEach((to, from, next) => {
   }
 
   if(authData === null && to.path !== '/auth') {
-    const nbeforeLoginUrl = localStorage.getItem('beforeLoginUrl');
+    // 第一次进入项目
+    // 保存用户进入的url
+    localStorage.setItem('beforeLoginUrl', JSON.stringify(to.fullPath));
     next('/auth');
     return false;
   }
