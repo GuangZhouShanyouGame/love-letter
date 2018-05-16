@@ -10,7 +10,9 @@ export default {
     const pathname = window.location.pathname;
 
     const {hw_auth_code} = this.formatQuery(href);
+    alert(hw_auth_code)
     const newhw_auth_code = hw_auth_code.split('#/')[0];
+    alert(newhw_auth_code)
     const res = await api.get24authCode(newhw_auth_code);
     if(res.code === 0) {
       const data = res.data;
