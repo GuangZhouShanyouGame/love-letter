@@ -20,9 +20,9 @@ export default class Auth extends Vue {
       } else {
         const beforeLoginUrl = cookie.cookie.get('beforeLoginUrl');
         if(beforeLoginUrl === undefined) {
-          location.href = 'http://' + host + pathname + '?loveletter=#/loading';
+          location.href = 'http://' + host + pathname + '?loveletter=love#/loading';
         } else {
-          location.href = 'http://' + host + pathname + '?loveletter=#'; + beforeLoginUrl;
+          location.href = 'http://' + host + pathname + '?loveletter=love#'; + beforeLoginUrl;
           cookie.cookie.set('beforeLoginUrl', '');
         }
       }
@@ -33,7 +33,7 @@ export default class Auth extends Vue {
         const redirect_uri = "http://auth.24haowan.com/auth?wxappid=" + wxappid + "&redirect_uri=" + newUrl + "&id=666&type=snsapi_userinfo";
         location.href = redirect_uri;
       }else {
-        location.href = 'http://' + host + pathname + '?loveletter=#/loading';
+        location.href = 'http://' + host + pathname + '?loveletter=love#/loading';
       }
     }
   }
