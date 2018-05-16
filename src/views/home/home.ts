@@ -23,6 +23,7 @@ export default class Home extends Vue {
   shareTipText = '';
 
   async mounted() {
+    console.log(this.$route)
     const authData = localStorage.getItem('auth_data');
 
     if(authData !== null) {

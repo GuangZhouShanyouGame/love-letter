@@ -15,6 +15,7 @@ export default class Auth extends Vue {
     const pathname = window.location.pathname;
 
     const authData = localStorage.getItem('auth_data');
+    const beforeLoginUrl = localStorage.getItem('beforeLoginUrl');
 
     if(url.indexOf('hw_auth_code') > 0){
       if(authData === null) {
@@ -22,14 +23,14 @@ export default class Auth extends Vue {
       } else {
         location.href = 'http://' + host + pathname;
 
-        // const beforeLoginUrl = cookie.cookie.get('beforeLoginUrl');
-        // if(beforeLoginUrl === undefined) {
-        //   location.href = 'http://' + host + pathname;
+        if(beforeLoginUrl === null) {
+          location.href = 'http://' + host + pathname;
 
-        // } else {
-        //   location.href = 'http://' + host + pathname;
-        //   cookie.cookie.set('beforeLoginUrl', '');
-        // }
+        } else {
+          location.href = 'http://' + host + pathname + '#' + beforeLoginUrl;
+          localStorage.removeItem('beforeLoginUrl');
+          // cookie.cookie.set('beforeLoginUrl', '');
+        }
       }
     } else {
       if(authData === null) {

@@ -13,6 +13,7 @@ export default class Loading extends Vue {
   async created() {}
 
   async mounted() {
+    alert(this.$route)
     const that = this;
     const conFig = {
       host: 'http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/dist/qa'

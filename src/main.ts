@@ -46,6 +46,7 @@ router.beforeEach((to, from, next) => {
   }
 
   if(authData === null && to.path !== '/auth') {
+    localStorage.setItem('beforeLoginUrl', JSON.stringify(to.fullPath));
     // cookie.cookie.set('beforeLoginUrl', to.fullPath,{
     //   expires:7
     // });
