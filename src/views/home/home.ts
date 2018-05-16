@@ -23,7 +23,7 @@ export default class Home extends Vue {
   shareTipText = '';
 
   async mounted() {
-    alert('这是首页')
+    // alert('这是首页')
     if(cookie.cookie.get('auth_data')) {
       this.auth_data = JSON.parse(cookie.cookie.get('auth_data'));
     }
@@ -32,7 +32,9 @@ export default class Home extends Vue {
 
   async getMails() {
     let res = await this.api.getMails({});
+    alert(res);
     if(res.code === "0") {
+      alert('请求成功');
       if(res.payload.mails.length > 0) {
         this.$router.push({path:'/myLoveLetter'});
       } else {
@@ -43,6 +45,7 @@ export default class Home extends Vue {
 
   // 点击我的情书按钮
   onMails() {
+    alert('点击了我的情书')
     this.getMails();
   }
 

@@ -12,15 +12,15 @@ export default {
       cookie.cookie.set('auth_data', JSON.stringify(data),{
         expires:7
       });
-      alert('步骤12：' + cookie.cookie.get('auth_data'))
-      alert('步骤12：' + window.location.href.split('?')[0])
+      //alert('步骤12：' + cookie.cookie.get('auth_data'))
+      //alert('步骤12：' + window.location.href.split('?')[0])
       const url = window.location.href.split('?')[0];
-      alert('14:'+ url + '#/loading')
-      window.location.href = "http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/index.html?hw_auth_code="+ hw_auth_code + '#/home';
+      // alert('14:'+ url + '#/loading')
+      window.location.href = "http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/index.html?hw_auth_code="+ hw_auth_code + '#/loading';
       //window.location.href = url + '#/loading';
       return false;
     } else {
-      alert('步骤13：' + window.location.href.split('?')[0])
+      // alert('步骤13：' + window.location.href.split('?')[0])
       return false;
     }
   },

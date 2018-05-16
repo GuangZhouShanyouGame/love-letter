@@ -16,22 +16,39 @@ import * as cookie from 'cookie_js'
 // import all icons
 import 'components/icons'
 
+const loadScript = function(url) {
+  const script = document.createElement('script');
+
+  script.setAttribute('type', 'text/javascript');
+  script.setAttribute('src', url);
+  script.onload = function() {
+      console.log('custom script loaded: ' + url);
+  };
+  script.onerror = function() {
+      console.log('loading custom script fail: ' + url);
+  };
+
+  document.documentElement.appendChild(script);
+};
+
+loadScript('http://24haowan-cdn.shanyougame.com/public/js/vconsole.min.js')
+
 Vue.use(svgicon, {
   tagName: 'icon'
 })
 
 router.beforeEach((to, from, next) => {
-  alert('步骤1:'+ cookie.cookie.get('auth_data'))
-  alert('步骤1路由：' + to.path)
+  //alert('步骤1:'+ cookie.cookie.get('auth_data'))
+  //alert('步骤1路由：' + to.path)
   if(cookie.cookie.get('auth_data') && to.path === '/auth'){
-    alert('进入步骤2')
+    //alert('进入步骤2')
     next('/home');
     return false
   }
 
   // cookie.cookie.get('auth_data') === undefined && to.path !== '/auth'
   if(cookie.cookie.get('auth_data') === undefined && to.path !== '/auth') {
-    alert('进入步骤3：' + to.fullPath)
+    // alert('进入步骤3：' + to.fullPath)
     cookie.cookie.set('beforeLoginUrl', to.fullPath,{
       expires:7
     });
