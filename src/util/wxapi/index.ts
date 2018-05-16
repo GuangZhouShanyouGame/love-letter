@@ -5,7 +5,7 @@ const wxApi = {
   opstions:{
     title: '为TA留下一封匿名情书',
     desc: 'desc',
-    imgUrl: 'http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/dist/qa//static/img/share.png'
+    imgUrl: 'http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/dist/qa/static/img/share.png'
   },
   // 判断是否是微信浏览器
   isweixin() {
@@ -54,6 +54,7 @@ const wxApi = {
 
   // 分享到朋友圈
   ShareTimeline(opstion) {
+    alert('调用了分享到朋友圈')
     wx.onMenuShareTimeline({
       title: opstion.title, // 分享标题
       link: opstion.link, // 分享链接
@@ -61,16 +62,19 @@ const wxApi = {
       success() {
         // 用户成功分享后执行的回调函数
         opstion.success()
+        alert('啦啦啦分享给朋友圈成功')
       },
       cancel() {
         // 用户取消分享后执行的回调函数
         opstion.error()
+        alert('啦啦啦分享给朋友圈失败')
       }
     })
   },
 
   // 分享给朋友
   ShareAppMessage(opstion) {
+    alert('调用了分享给朋友')
     wx.onMenuShareAppMessage({
       title: opstion.title, // 分享标题
       desc: opstion.desc, // 分享描述
@@ -81,10 +85,12 @@ const wxApi = {
       success() {
         // 用户成功分享后执行的回调函数
         opstion.success()
+        alert('啦啦啦分享给朋友成功')
       },
       cancel() {
         // 用户取消分享后执行的回调函数
         opstion.error()
+        alert('啦啦啦分享给朋友失败')
       }
     })
   }
