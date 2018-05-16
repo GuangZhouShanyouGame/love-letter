@@ -20,7 +20,8 @@ export default {
         expires:7
       });
       const url = window.location.href.split('?')[0];
-      window.location.href = 'http://' + host + pathname + '?loveletter=love#loading';
+      location.href = 'http://' + host + pathname;
+      // window.location.href = 'http://' + host + pathname + '?loveletter=love#loading';
       //window.location.href = "http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/index.html?loveletter=#/loading";
       return false;
     } else {
