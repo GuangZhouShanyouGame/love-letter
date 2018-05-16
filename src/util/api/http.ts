@@ -5,10 +5,12 @@ import env from 'env'
 import * as cookie from 'cookie_js'
 
 let auth_data = '';
+let jwt = '';
 
 const authData = cookie.cookie.get('auth_data');
 if(authData) {
-  auth_data = JSON.parse(authData)
+  auth_data = JSON.parse(authData);
+  jwt = (<any>auth_data).jwt;
 }
 
 
@@ -37,7 +39,7 @@ methods.forEach(v => {
       method: v,
       url,
       baseURL: baseUrl || DEFAULTCONFIG.baseURL,
-      headers:{'Authorization': 'Bearer ' + authData === undefined ? '' : (<any>auth_data).jwt}
+      headers:{'Authorization': 'Bearer '+jwt}
     }
     const instance = axios.create(DEFAULTCONFIG)
 
