@@ -27,6 +27,7 @@ const wxApi = {
   },
 
   async wxRegister(callback) {
+    alert('调用了分享事件')
     let res = await api.getSdkConfig({url: window.location.href});
 
     alert(res)
