@@ -8,10 +8,10 @@
         <div class="sendOut-cont">
           <div class="btns-wp">
             <div>
-              <a :href="'#/write/'+openid" class="btn-link write-again"></a>
+              <a href="javascript:;" class="btn-link write-again" @click="onReturnWrite"></a>
             </div>
             <div>
-              <a href="#/home" class="btn-link return-home"></a>
+              <a href="javascript:;" class="btn-link return-home" @click="onReturnHome"></a>
             </div>
           </div>
           <div class="logo-wp">

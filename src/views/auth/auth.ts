@@ -14,22 +14,25 @@ export default class Auth extends Vue {
     const host = window.location.host;
     const pathname = window.location.pathname;
 
+    const authData = localStorage.getItem('auth_data');
+
     if(url.indexOf('hw_auth_code') > 0){
-      if(cookie.cookie.get('auth_data') === undefined) {
+      if(authData === null) {
         getjwt.getJwt();
       } else {
-        const beforeLoginUrl = cookie.cookie.get('beforeLoginUrl');
-        if(beforeLoginUrl === undefined) {
-          location.href = 'http://' + host + pathname;
-          //location.href = 'http://' + host + pathname + '?loveletter=love#/loading';
-        } else {
-          location.href = 'http://' + host + pathname;
-          // location.href = 'http://' + host + pathname + '?loveletter=love#'; + beforeLoginUrl;
-          cookie.cookie.set('beforeLoginUrl', '');
-        }
+        location.href = 'http://' + host + pathname;
+
+        // const beforeLoginUrl = cookie.cookie.get('beforeLoginUrl');
+        // if(beforeLoginUrl === undefined) {
+        //   location.href = 'http://' + host + pathname;
+
+        // } else {
+        //   location.href = 'http://' + host + pathname;
+        //   cookie.cookie.set('beforeLoginUrl', '');
+        // }
       }
     } else {
-      if(cookie.cookie.get('auth_data') === undefined) {
+      if(authData === null) {
         const newUrl = 'http://' + host + pathname
         const wxappid = 'wx86c9e036cd37b848';
         const redirect_uri = "http://auth.24haowan.com/auth?wxappid=" + wxappid + "&redirect_uri=" + newUrl + "&id=666&type=snsapi_userinfo";

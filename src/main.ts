@@ -11,7 +11,7 @@ Vue.use(VueAwesomeSwiper)
 
 //import 'vue2-animate/dist/vue2-animate.min.css'
 
-import * as cookie from 'cookie_js'
+// import * as cookie from 'cookie_js'
 
 // import all icons
 import 'components/icons'
@@ -38,20 +38,17 @@ Vue.use(svgicon, {
 })
 
 router.beforeEach((to, from, next) => {
-  //alert('步骤1:'+ cookie.cookie.get('auth_data'))
-  //alert('步骤1路由：' + to.path)
-  if(cookie.cookie.get('auth_data') && to.path === '/auth'){
-    //alert('进入步骤2')
-    next('/home');
+  const authData = localStorage.getItem('auth_data');
+
+  if(authData !== null && to.path === '/auth'){
+    next('/loading');
     return false
   }
 
-  // cookie.cookie.get('auth_data') === undefined && to.path !== '/auth'
-  if(cookie.cookie.get('auth_data') === undefined && to.path !== '/auth') {
-    // alert('进入步骤3：' + to.fullPath)
-    cookie.cookie.set('beforeLoginUrl', to.fullPath,{
-      expires:7
-    });
+  if(authData === null && to.path !== '/auth') {
+    // cookie.cookie.set('beforeLoginUrl', to.fullPath,{
+    //   expires:7
+    // });
     next('/auth');
     return false;
   }

@@ -15,8 +15,8 @@
           </div>
 
           <div class="btns-wp">
-            <a href="#/home" class="btn-link return-home"></a>
-            <a href="javascript://" class="btn-link watchMovie-link" @click="onWatchMovie"></a>
+            <a href="javascript:;" class="btn-link return-home" @click="onReturnHome"></a>
+            <a href="javascript:;" class="btn-link watchMovie-link" @click="onWatchMovie"></a>
           </div>
 
           <div class="letter-text"></div>

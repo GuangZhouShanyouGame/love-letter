@@ -8,8 +8,8 @@
           </div>
 
           <div class="btns-wp">
-            <a :href="'#/write/'+openid" class="btn-link write-btn"></a>
-            <a :href="'#/borrow/'+openid" class="btn-link borrow-btn"></a>
+            <a href="javascript:;" class="btn-link write-btn"></a>
+            <a href="javascript:;" class="btn-link borrow-btn" @click="onReturnBorrow"></a>
             <a href="javascript:;" class="btn-link write-sendOut-btn" @click="onSendOut"></a>
           </div>
           <div class="logo-wp">

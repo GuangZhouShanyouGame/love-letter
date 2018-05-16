@@ -50,4 +50,8 @@ export default class Write extends Vue {
       },1500);
     }
   }
+
+  onReturnBorrow() {
+    this.$router.push({path:'/borrow/'+this.openid})
+  }
 }

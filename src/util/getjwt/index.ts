@@ -1,6 +1,6 @@
 import api from 'util/api'
 
-import * as cookie from 'cookie_js'
+// import * as cookie from 'cookie_js'
 
 export default {
   async getJwt() {
@@ -10,37 +10,23 @@ export default {
     const pathname = window.location.pathname;
 
     const {hw_auth_code} = this.formatQuery(href);
-    alert(hw_auth_code)
     const newhw_auth_code = hw_auth_code.split('#/')[0];
-    alert(newhw_auth_code)
     const res = await api.get24authCode(newhw_auth_code);
     if(res.code === 0) {
       const data = res.data;
-      cookie.cookie.set('auth_data', JSON.stringify(data),{
-        expires:7
-      });
+
+      localStorage.setItem('auth_data', JSON.stringify(data));
+
+      // cookie.cookie.set('auth_data', JSON.stringify(data),{
+      //   expires:7
+      // });
+
       const url = window.location.href.split('?')[0];
       location.href = 'http://' + host + pathname;
-      // window.location.href = 'http://' + host + pathname + '?loveletter=love#loading';
-      //window.location.href = "http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/index.html?loveletter=#/loading";
       return false;
     } else {
       return false;
     }
-  },
-
-  check() {
-    const url = encodeURIComponent(window.location.href);
-    const wxappid = 'wx86c9e036cd37b848';
-    const {href} = location;
-    const {hw_auth_code} = this.formatQuery(href);
-
-    if (hw_auth_code) {
-      this.getJwt();}
-    // } else {
-    //   const redirect_uri = "http://auth.24haowan.com/auth?wxappid=" + wxappid + "&redirect_uri=" + url + "&id=666&type=snsapi_userinfo";
-    //   location.href = redirect_uri;
-    // }
   },
 
   formatQuery(query) {

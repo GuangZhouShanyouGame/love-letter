@@ -5,7 +5,7 @@ import template from './myLoveLetter.vue'
 import * as Clipboard from 'clipboard'
 import wxapi from 'util/wxapi'
 import conFig from 'util/config'
-import * as cookie from 'cookie_js'
+// import * as cookie from 'cookie_js'
 
 @Component({
   mixins: [template]
@@ -42,9 +42,10 @@ export default class MyLoveLetter extends Vue {
   }
 
   async mounted() {
-    alert('我的情书页')
-    if(cookie.cookie.get('auth_data')) {
-      this.auth_data = JSON.parse(cookie.cookie.get('auth_data'));
+    const authData = localStorage.getItem('auth_data');
+
+    if(authData !== null) {
+      this.auth_data = JSON.parse(authData);
     }
     wxapi.wxRegister(this.wxRegCallback);
   }

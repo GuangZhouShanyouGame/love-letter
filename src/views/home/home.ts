@@ -3,7 +3,7 @@ import { Component, Watch, Prop } from 'vue-property-decorator'
 import template from './home.vue'
 import wxapi from 'util/wxapi'
 import conFig from 'util/config'
-import * as cookie from 'cookie_js'
+// import * as cookie from 'cookie_js'
 
 @Component({
   mixins: [template],
@@ -23,9 +23,10 @@ export default class Home extends Vue {
   shareTipText = '';
 
   async mounted() {
-    // alert('这是首页')
-    if(cookie.cookie.get('auth_data')) {
-      this.auth_data = JSON.parse(cookie.cookie.get('auth_data'));
+    const authData = localStorage.getItem('auth_data');
+
+    if(authData !== null) {
+      this.auth_data = JSON.parse(authData);
     }
     wxapi.wxRegister(this.wxRegCallback);
   }

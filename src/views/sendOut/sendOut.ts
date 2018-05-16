@@ -14,4 +14,12 @@ export default class SendOut extends Vue {
   async mounted() {
     this.openid = this.$route.params.openid;
   }
+
+  onReturnWrite() {
+    this.$router.push({path: '/write/' + this.openid})
+  }
+
+  onReturnHome() {
+    this.$router.push({path: '/home'})
+  }
 }

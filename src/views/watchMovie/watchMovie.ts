@@ -58,4 +58,8 @@ export default class WatchMovie extends Vue {
       this.showTicketFinish = true;
     }
   }
+
+  onReturnHome() {
+    this.$router.push({path: '/home'})
+  }
 }

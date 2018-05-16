@@ -334,4 +334,8 @@ export default class Borrow extends Vue {
       },1500);
     }
   }
+
+  onReturnWrite() {
+    this.$router.push({path:'/write/' + this.openid})
+  }
 }
