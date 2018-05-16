@@ -16,11 +16,6 @@ export default {
       const data = res.data;
 
       localStorage.setItem('auth_data', JSON.stringify(data));
-
-      // cookie.cookie.set('auth_data', JSON.stringify(data),{
-      //   expires:7
-      // });
-
       const url = window.location.href.split('?')[0];
       location.href = 'http://' + host + pathname;
       return false;

@@ -21,26 +21,16 @@ export default class Auth extends Vue {
         getjwt.getJwt();
       } else {
         location.href = 'http://' + host + pathname;
-
-        // const beforeLoginUrl = cookie.cookie.get('beforeLoginUrl');
-        // if(beforeLoginUrl === undefined) {
-        //   location.href = 'http://' + host + pathname;
-
-        // } else {
-        //   location.href = 'http://' + host + pathname;
-        //   cookie.cookie.set('beforeLoginUrl', '');
-        // }
       }
     } else {
       if(authData === null) {
         localStorage.setItem('router', this.$route.query.router);
-        const newUrl = 'http://' + host + pathname
+        const newUrl = 'http://' + host + pathname;
         const wxappid = 'wx86c9e036cd37b848';
         const redirect_uri = "http://auth.24haowan.com/auth?wxappid=" + wxappid + "&redirect_uri="+ newUrl + "&id=666&type=snsapi_userinfo";
         location.href = redirect_uri;
       }else {
         location.href = 'http://' + host + pathname;
-        // location.href = 'http://' + host + pathname + '?loveletter=love#/loading';
       }
     }
   }
