@@ -42,7 +42,10 @@ export default class MyLoveLetter extends Vue {
   }
 
   async mounted() {
-    this.auth_data = JSON.parse(cookie.cookie.get('auth_data'));
+    alert('我的情书页')
+    if(cookie.cookie.get('auth_data')) {
+      this.auth_data = JSON.parse(cookie.cookie.get('auth_data'));
+    }
     wxapi.wxRegister(this.wxRegCallback);
   }
 

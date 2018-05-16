@@ -12,9 +12,11 @@ export default {
       cookie.cookie.set('auth_data', JSON.stringify(data),{
         expires:7
       });
+      alert('步骤12：' + window.location.href.split('?')[0])
       const url = window.location.href.split('?')[0];
       window.location.href = url + '#/loading';
     } else {
+      alert('步骤13：' + window.location.href.split('?')[0])
       return false;
     }
   },

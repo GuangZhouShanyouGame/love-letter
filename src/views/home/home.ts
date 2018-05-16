@@ -23,7 +23,10 @@ export default class Home extends Vue {
   shareTipText = '';
 
   async mounted() {
-    this.auth_data = JSON.parse(cookie.cookie.get('auth_data'));
+    alert('这是首页')
+    if(cookie.cookie.get('auth_data')) {
+      this.auth_data = JSON.parse(cookie.cookie.get('auth_data'));
+    }
     wxapi.wxRegister(this.wxRegCallback);
   }
 

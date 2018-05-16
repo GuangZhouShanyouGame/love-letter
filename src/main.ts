@@ -21,12 +21,17 @@ Vue.use(svgicon, {
 })
 
 router.beforeEach((to, from, next) => {
+  alert('步骤1:'+ cookie.cookie.get('auth_data'))
+  alert('步骤1路由：' + to.path)
   if(cookie.cookie.get('auth_data') && to.path === '/auth'){
+    alert('进入步骤2')
     next('/home');
     return false
   }
 
-  if(cookie.cookie.get('auth_data') === undefined && to.path !== '/auth') {
+  // cookie.cookie.get('auth_data') === undefined && to.path !== '/auth'
+  if(cookie.cookie.get('auth_data') === undefined && to.path.indexOf('/auth') < 0) {
+    alert('进入步骤3：' + to.fullPath)
     cookie.cookie.set('beforeLoginUrl', to.fullPath,{
       expires:7
     });
