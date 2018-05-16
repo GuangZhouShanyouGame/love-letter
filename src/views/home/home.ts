@@ -23,7 +23,6 @@ export default class Home extends Vue {
   shareTipText = '';
 
   async mounted() {
-    alert(this.$route)
     const authData = localStorage.getItem('auth_data');
 
     if(authData !== null) {
@@ -62,7 +61,6 @@ export default class Home extends Vue {
       link: conFig.host + '#/write/' + (<any>that.auth_data).openid, // 分享链接
       imgUrl: wxApi.opstions.imgUrl,// 分享图标
       success() {
-        alert('分享成功')
         that.showNoLetter = false;
         setTimeout(() => {
           that.showShareTips = true;
@@ -98,7 +96,6 @@ export default class Home extends Vue {
       link: conFig.host + '#/write/'+ (<any>that.auth_data).openid, // 分享链接
       imgUrl: wxApi.opstions.imgUrl,// 分享图标
       success() {
-        alert('分享成功')
         that.showNoLetter = false;
         setTimeout(() => {
           that.showShareTips = true;

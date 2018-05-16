@@ -40,16 +40,16 @@ Vue.use(svgicon, {
 router.beforeEach((to, from, next) => {
   const authData = localStorage.getItem('auth_data');
 
+  const beforeLoginUrl = localStorage.getItem('beforeLoginUrl');
+
   if(authData !== null && to.path === '/auth'){
+    // 用户使用后退返回到授权页，则默认回到首页
     next('/loading');
-    return false
+    return false;
   }
 
   if(authData === null && to.path !== '/auth') {
-    localStorage.setItem('beforeLoginUrl', JSON.stringify(to.fullPath));
-    // cookie.cookie.set('beforeLoginUrl', to.fullPath,{
-    //   expires:7
-    // });
+    const nbeforeLoginUrl = localStorage.getItem('beforeLoginUrl');
     next('/auth');
     return false;
   }
