@@ -27,7 +27,6 @@ const wxApi = {
   },
 
   async wxRegister(callback) {
-    alert('调用了分享事件')
     let res = await api.getSdkConfig({url: window.location.href});
 
     alert(res)
@@ -54,7 +53,6 @@ const wxApi = {
 
   // 分享到朋友圈
   ShareTimeline(opstion) {
-    alert('调用了分享到朋友圈')
     wx.onMenuShareTimeline({
       title: opstion.title, // 分享标题
       link: opstion.link, // 分享链接
@@ -62,19 +60,16 @@ const wxApi = {
       success() {
         // 用户成功分享后执行的回调函数
         opstion.success()
-        alert('啦啦啦分享给朋友圈成功')
       },
       cancel() {
         // 用户取消分享后执行的回调函数
         opstion.error()
-        alert('啦啦啦分享给朋友圈失败')
       }
     })
   },
 
   // 分享给朋友
   ShareAppMessage(opstion) {
-    alert('调用了分享给朋友')
     wx.onMenuShareAppMessage({
       title: opstion.title, // 分享标题
       desc: opstion.desc, // 分享描述
@@ -85,12 +80,10 @@ const wxApi = {
       success() {
         // 用户成功分享后执行的回调函数
         opstion.success()
-        alert('啦啦啦分享给朋友成功')
       },
       cancel() {
         // 用户取消分享后执行的回调函数
         opstion.error()
-        alert('啦啦啦分享给朋友失败')
       }
     })
   }

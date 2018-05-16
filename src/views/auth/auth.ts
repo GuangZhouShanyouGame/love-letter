@@ -27,11 +27,9 @@ export default class Auth extends Vue {
           location.href = 'http://' + host + pathname;
 
         } else {
-          alert(beforeLoginUrl)
           location.href = 'http://' + host + pathname + '#' + beforeLoginUrl;
-          localStorage.removeItem('beforeLoginUrl');
-          // cookie.cookie.set('beforeLoginUrl', '');
         }
+        localStorage.removeItem('beforeLoginUrl');
       }
     } else {
       if(authData === null) {
