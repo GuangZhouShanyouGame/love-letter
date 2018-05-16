@@ -16,7 +16,7 @@ export default {
       alert('步骤12：' + window.location.href.split('?')[0])
       const url = window.location.href.split('?')[0];
       alert('14:'+ url + '#/loading')
-      window.location.href = "http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/index.html#/home";
+      window.location.href = "http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/index.html?#/loading";
       //window.location.href = url + '#/loading';
       return false;
     } else {
