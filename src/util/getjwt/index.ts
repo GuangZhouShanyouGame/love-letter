@@ -14,15 +14,15 @@ export default {
     const res = await api.get24authCode(newhw_auth_code);
     if(res.code === 0) {
       const data = res.data;
+
       localStorage.setItem('auth_data', JSON.stringify(data));
 
-      const beforeLoginUrl = localStorage.getItem('beforeLoginUrl');
+      // cookie.cookie.set('auth_data', JSON.stringify(data),{
+      //   expires:7
+      // });
 
-      if(beforeLoginUrl === null) {
-        location.href = 'http://' + host + pathname;
-      } else {
-        location.href = 'http://' + host + pathname + '#' + beforeLoginUrl;
-      }
+      const url = window.location.href.split('?')[0];
+      location.href = 'http://' + host + pathname;
       return false;
     } else {
       return false;

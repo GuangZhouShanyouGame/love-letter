@@ -1,7 +1,7 @@
 import Vue from 'components/base'
 import { Component, Watch, Prop } from 'vue-property-decorator'
 import template from './home.vue'
-import wxApi from 'util/wxapi'
+import wxapi from 'util/wxapi'
 import conFig from 'util/config'
 // import * as cookie from 'cookie_js'
 
@@ -28,7 +28,7 @@ export default class Home extends Vue {
     if(authData !== null) {
       this.auth_data = JSON.parse(authData);
     }
-    wxApi.wxRegister(this.wxRegCallback);
+    wxapi.wxRegister(this.wxRegCallback);
   }
 
   async getMails() {
@@ -57,9 +57,9 @@ export default class Home extends Vue {
   wxShareTimeline() {
     const that = this;
     let opstion = {
-      title: wxApi.opstions.title, // 分享标题
+      title: wxapi.opstions.title, // 分享标题
       link: conFig.host + '#/write/' + (<any>that.auth_data).openid, // 分享链接
-      imgUrl: wxApi.opstions.imgUrl,// 分享图标
+      imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
         that.showNoLetter = false;
         setTimeout(() => {
@@ -84,17 +84,17 @@ export default class Home extends Vue {
         },2500)
       }
     }
-    wxApi.ShareTimeline(opstion);
+    wxapi.ShareTimeline(opstion);
   }
 
   // 分享给朋友
   wxShareAppMessage() {
     const that = this;
     let opstion = {
-      title: wxApi.opstions.title, // 分享标题
-      desc: wxApi.opstions.desc,
+      title: wxapi.opstions.title, // 分享标题
+      desc: wxapi.opstions.desc,
       link: conFig.host + '#/write/'+ (<any>that.auth_data).openid, // 分享链接
-      imgUrl: wxApi.opstions.imgUrl,// 分享图标
+      imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
         that.showNoLetter = false;
         setTimeout(() => {
@@ -119,7 +119,7 @@ export default class Home extends Vue {
         },2500)
       }
     }
-    wxApi.ShareAppMessage(opstion);
+    wxapi.ShareAppMessage(opstion);
   }
 
   // 分享成功时调用

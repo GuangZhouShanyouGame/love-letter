@@ -172,6 +172,7 @@ export default class MyLoveLetter extends Vue {
         },2500)
       }
     }
+    console.log('[分享给朋友]: ', opstion);
     wxapi.ShareAppMessage(opstion);
   }
 

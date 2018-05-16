@@ -13,7 +13,6 @@ export default class Loading extends Vue {
   async created() {}
 
   async mounted() {
-    alert(this.$route)
     const that = this;
     const conFig = {
       host: 'http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/dist/qa'
@@ -72,7 +71,10 @@ export default class Loading extends Vue {
       },
       onComplete: function (total) {
         //alert('加载完毕:' + total + '个资源');
-        that.$router.push({path:'/home'});
+        // that.$router.push({path:'/home'});
+        const currentRouter = localStorage.getItem('router')
+        localStorage.removeItem('router');
+        that.$router.push(currentRouter || '/home');
       }
     });
 

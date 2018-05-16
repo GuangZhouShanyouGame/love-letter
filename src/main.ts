@@ -40,19 +40,16 @@ Vue.use(svgicon, {
 router.beforeEach((to, from, next) => {
   const authData = localStorage.getItem('auth_data');
 
-  const beforeLoginUrl = localStorage.getItem('beforeLoginUrl');
-
   if(authData !== null && to.path === '/auth'){
-    // 用户使用后退返回到授权页，则默认回到首页
     next('/loading');
-    return false;
+    return false
   }
 
   if(authData === null && to.path !== '/auth') {
-    // 第一次进入项目
-    // 保存用户进入的url
-    localStorage.setItem('beforeLoginUrl', JSON.stringify(to.fullPath));
-    next('/auth');
+    // cookie.cookie.set('beforeLoginUrl', to.fullPath,{
+    //   expires:7
+    // });
+    next({ path: '/auth', query: { router: window.location.hash.substr(1) } });
     return false;
   }
 

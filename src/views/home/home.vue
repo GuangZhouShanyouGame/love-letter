@@ -7,7 +7,7 @@
         <img class="home-myletter" src="../../assets/images/shouye_myLetter.png" alt="给TA寄出匿名情书，开始你们的故事吧">
       </div>
     </div>
-    <div class="share-cont" v-if="showNoLetter" @click="showNoLetter = false;">
+    <div class="share-cont" v-if="showNoLetter">
       <img src="../../assets/images/shouye_share.png" class="share-img" alt="分享">
     </div>
 

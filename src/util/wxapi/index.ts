@@ -5,7 +5,7 @@ const wxApi = {
   opstions:{
     title: '为TA留下一封匿名情书',
     desc: 'desc',
-    imgUrl: 'http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/dist/qa/static/img/share.png'
+    imgUrl: 'http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/dist/qa//static/img/share.png'
   },
   // 判断是否是微信浏览器
   isweixin() {
@@ -29,10 +29,6 @@ const wxApi = {
   async wxRegister(callback) {
     let res = await api.getSdkConfig({url: window.location.href});
 
-    alert(res)
-    alert(res.code)
-    alert(res.payload)
-
     if (res.code === "0") {
       wx.config({
         debug: false, appId: res.payload.appId, // 和获取Ticke的必须一样------必填，公众号的唯一标识
@@ -55,13 +51,15 @@ const wxApi = {
   ShareTimeline(opstion) {
     wx.onMenuShareTimeline({
       title: opstion.title, // 分享标题
-      link: opstion.link, // 分享链接
+      link: 'http://www.163.com', // 分享链接
       imgUrl: opstion.imgUrl, // 分享图标
-      success() {
+      success(res) {
+        console.log(res);
         // 用户成功分享后执行的回调函数
         opstion.success()
       },
-      cancel() {
+      cancel(err) {
+        console.log('err: ', err);
         // 用户取消分享后执行的回调函数
         opstion.error()
       }
@@ -73,15 +71,17 @@ const wxApi = {
     wx.onMenuShareAppMessage({
       title: opstion.title, // 分享标题
       desc: opstion.desc, // 分享描述
-      link: opstion.link, // 分享链接
+      link: 'http://baidu.com', // 分享链接
       imgUrl: opstion.imgUrl, // 分享图标
       type: opstion.type, // 分享类型,music、video或link，不填默认为link
       dataUrl: opstion.dataUrl, // 如果type是music或video，则要提供数据链接，默认为空
-      success() {
+      success(res) {
+        console.log(res);
         // 用户成功分享后执行的回调函数
         opstion.success()
       },
-      cancel() {
+      cancel(err) {
+        console.log('err: ', err);
         // 用户取消分享后执行的回调函数
         opstion.error()
       }
