@@ -21,10 +21,10 @@ export default class Auth extends Vue {
         const beforeLoginUrl = cookie.cookie.get('beforeLoginUrl');
         alert('进入步骤7：'+ beforeLoginUrl)
         if(beforeLoginUrl === undefined) {
-          window.location.href = url.split('?')[0] + '#/loading';
+          location.href = url.split('?')[0] + '#/loading';
           alert('进入步骤8：'+ url.split('?')[0])
         } else {
-          window.location.href = url.split('?')[0] + '#' + beforeLoginUrl;
+          location.href = url.split('?')[0] + '#' + beforeLoginUrl;
           alert('进入步骤9：'+ url.split('?')[0] + '#' + beforeLoginUrl)
           cookie.cookie.set('beforeLoginUrl', '');
         }
@@ -38,7 +38,7 @@ export default class Auth extends Vue {
         location.href = redirect_uri;
       }else {
         alert('进入步骤11：'+url.split('?')[0] + '#/loading')
-        window.location.href = url.split('?')[0] + '#/loading';
+        location.href = url.split('?')[0] + '#/loading';
       }
     }
   }

@@ -30,7 +30,7 @@ router.beforeEach((to, from, next) => {
   }
 
   // cookie.cookie.get('auth_data') === undefined && to.path !== '/auth'
-  if(cookie.cookie.get('auth_data') === undefined && to.path.indexOf('/auth') < 0) {
+  if(cookie.cookie.get('auth_data') === undefined && to.path !== '/auth') {
     alert('进入步骤3：' + to.fullPath)
     cookie.cookie.set('beforeLoginUrl', to.fullPath,{
       expires:7
