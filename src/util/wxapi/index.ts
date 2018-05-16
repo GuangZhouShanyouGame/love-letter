@@ -29,6 +29,10 @@ const wxApi = {
   async wxRegister(callback) {
     let res = await api.getSdkConfig({url: window.location.href});
 
+    alert(res)
+    alert(res.code)
+    alert(res.payload)
+
     if (res.code === "0") {
       wx.config({
         debug: false, appId: res.payload.appId, // 和获取Ticke的必须一样------必填，公众号的唯一标识

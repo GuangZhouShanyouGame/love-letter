@@ -1,7 +1,7 @@
 import Vue from 'components/base'
 import { Component, Watch, Prop } from 'vue-property-decorator'
 import template from './home.vue'
-import wxapi from 'util/wxapi'
+import wxApi from 'util/wxapi'
 import conFig from 'util/config'
 // import * as cookie from 'cookie_js'
 
@@ -23,13 +23,13 @@ export default class Home extends Vue {
   shareTipText = '';
 
   async mounted() {
-    console.log(this.$route)
+    alert(this.$route)
     const authData = localStorage.getItem('auth_data');
 
     if(authData !== null) {
       this.auth_data = JSON.parse(authData);
     }
-    wxapi.wxRegister(this.wxRegCallback);
+    wxApi.wxRegister(this.wxRegCallback);
   }
 
   async getMails() {
@@ -58,10 +58,11 @@ export default class Home extends Vue {
   wxShareTimeline() {
     const that = this;
     let opstion = {
-      title: wxapi.opstions.title, // 分享标题
+      title: wxApi.opstions.title, // 分享标题
       link: conFig.host + '#/write/' + (<any>that.auth_data).openid, // 分享链接
-      imgUrl: wxapi.opstions.imgUrl,// 分享图标
+      imgUrl: wxApi.opstions.imgUrl,// 分享图标
       success() {
+        alert('分享成功')
         that.showNoLetter = false;
         setTimeout(() => {
           that.showShareTips = true;
@@ -85,18 +86,19 @@ export default class Home extends Vue {
         },2500)
       }
     }
-    wxapi.ShareTimeline(opstion);
+    wxApi.ShareTimeline(opstion);
   }
 
   // 分享给朋友
   wxShareAppMessage() {
     const that = this;
     let opstion = {
-      title: wxapi.opstions.title, // 分享标题
-      desc: wxapi.opstions.desc,
+      title: wxApi.opstions.title, // 分享标题
+      desc: wxApi.opstions.desc,
       link: conFig.host + '#/write/'+ (<any>that.auth_data).openid, // 分享链接
-      imgUrl: wxapi.opstions.imgUrl,// 分享图标
+      imgUrl: wxApi.opstions.imgUrl,// 分享图标
       success() {
+        alert('分享成功')
         that.showNoLetter = false;
         setTimeout(() => {
           that.showShareTips = true;
@@ -120,7 +122,7 @@ export default class Home extends Vue {
         },2500)
       }
     }
-    wxapi.ShareAppMessage(opstion);
+    wxApi.ShareAppMessage(opstion);
   }
 
   // 分享成功时调用
