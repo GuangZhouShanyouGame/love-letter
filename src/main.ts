@@ -46,9 +46,6 @@ router.beforeEach((to, from, next) => {
   }
 
   if(authData === null && to.path !== '/auth') {
-    // cookie.cookie.set('beforeLoginUrl', to.fullPath,{
-    //   expires:7
-    // });
     next({ path: '/auth', query: { router: window.location.hash.substr(1) } });
     return false;
   }

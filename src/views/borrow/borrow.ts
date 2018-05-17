@@ -308,6 +308,17 @@ export default class Borrow extends Vue {
     this.total = this.borrowData.length;
     const num = this.randNum(0,this.total);
     this.$refs.mySwiper.swiper.slideTo(num, 0, false)
+
+    const t = document.body;
+    // t.addEventListener('touchstart', function (e) {
+    //    console.log('aaa')
+    //    e.preventDefault()
+    // })
+
+    t.addEventListener('touchmove', function(e) {
+      console.log('bbbb')
+      e.preventDefault()
+    })
   }
 
   //获取范围内的随机数
