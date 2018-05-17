@@ -62,9 +62,11 @@ export default class Layout extends Vue {
       this.showPlay = false;
       (<any>audio).pause();
     } else {
-      this.isPlay = true;
-      this.showPlay = true;
-      (<any>audio).play();
+      document.addEventListener('WeixinJSBridgeReady',() =>{
+        this.isPlay = true;
+        this.showPlay = true;
+        (<any>audio).play();
+      });
     }
   }
 }

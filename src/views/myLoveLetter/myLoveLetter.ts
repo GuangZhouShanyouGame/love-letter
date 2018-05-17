@@ -180,4 +180,8 @@ export default class MyLoveLetter extends Vue {
   async shares() {
     let res = await this.api.shares();
   }
+
+  onReturnHome() {
+    this.$router.push({path: '/home'});
+  }
 }

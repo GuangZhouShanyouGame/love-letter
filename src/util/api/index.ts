@@ -58,6 +58,14 @@ export default {
     return http.get('/cgs/keys/' + params.key + '/ticket', {})
    },
 
+   getBrowseMails(params) {
+    return http.post('/cgs/browse-mails', {
+      openid: params.openid,
+      offset: params.offset,
+      limit: params.limit
+    })
+  },
+
   http: http,
   axios: axios
 }

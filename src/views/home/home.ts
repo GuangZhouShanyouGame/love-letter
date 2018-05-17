@@ -22,29 +22,59 @@ export default class Home extends Vue {
   showShareTips = false;
   shareTipText = '';
 
+  myLetterNum = 0;
+
+  shareTimelineOpstion = {
+    title: '为TA寄出一封匿名情书，开始你们的故事吧', // 分享标题
+    link: conFig.host, // 分享链接
+  }
+
+  shareAppMessageOpstion = {
+    title: '为TA寄出一封匿名情书', // 分享标题
+    desc: '520给我寄出一封匿名情书，开始我们的故事吧',
+    link: conFig.host, // 分享链接
+  }
+
   async mounted() {
     const authData = localStorage.getItem('auth_data');
 
     if(authData !== null) {
       this.auth_data = JSON.parse(authData);
     }
-    wxapi.wxRegister(this.wxRegCallback);
+
+    this.getMails();
   }
 
   async getMails() {
     let res = await this.api.getMails({});
     if(res.code === "0") {
       if(res.payload.mails.length > 0) {
-        this.$router.push({path:'/myLoveLetter'});
+        this.myLetterNum = res.payload.mails.length;
       } else {
-        this.showNoLetter = true;
+        this.myLetterNum = 0;
+
+        this.shareTimelineOpstion = {
+          title: '快来围观' + (<any>this.auth_data).nickname + '收到了什么匿名情书',
+          link: conFig.host + '#/write/' + (<any>this.auth_data).openid
+        }
+
+        this.shareAppMessageOpstion = {
+          title: '为TA寄出一封匿名情书', // 分享标题
+          desc: '快来围观'+ (<any>this.auth_data).nickname +'收到了什么匿名情书',
+          link: conFig.host + '#/write/'+ (<any>this.auth_data).openid, // 分享链接
+        }
       }
     }
+    wxapi.wxRegister(this.wxRegCallback);
   }
 
   // 点击我的情书按钮
   onMails() {
-    this.getMails();
+    if(this.myLetterNum === 0) {
+      this.showNoLetter = true;
+    } else {
+      this.$router.push({path:'/myLoveLetter'});
+    }
   }
 
   //[wxRegCallback 用于微信JS-SDK回调]
@@ -57,31 +87,13 @@ export default class Home extends Vue {
   wxShareTimeline() {
     const that = this;
     let opstion = {
-      title: wxapi.opstions.title, // 分享标题
-      link: conFig.host + '#/write/' + (<any>that.auth_data).openid, // 分享链接
+      title: that.shareTimelineOpstion.title, // 分享标题
+      link: that.shareTimelineOpstion.link, // 分享链接
       imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
-        that.showNoLetter = false;
-        setTimeout(() => {
-          that.showShareTips = true;
-          that.shareTipText = '分享成功'
-        },1000);
-
-        setTimeout(() => {
-          that.showShareTips = false;
-        },2500);
         that.shares();
       },
       error() {
-        that.showNoLetter = false;
-        setTimeout(() => {
-          that.showShareTips = true;
-          that.shareTipText = '分享失败'
-        },1000);
-
-        setTimeout(() => {
-          that.showShareTips = false;
-        },2500)
       }
     }
     wxapi.ShareTimeline(opstion);
@@ -91,32 +103,14 @@ export default class Home extends Vue {
   wxShareAppMessage() {
     const that = this;
     let opstion = {
-      title: wxapi.opstions.title, // 分享标题
-      desc: wxapi.opstions.desc,
-      link: conFig.host + '#/write/'+ (<any>that.auth_data).openid, // 分享链接
+      title: that.shareAppMessageOpstion.title, // 分享标题
+      desc: that.shareAppMessageOpstion.desc,
+      link: that.shareAppMessageOpstion.link, // 分享链接
       imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
-        that.showNoLetter = false;
-        setTimeout(() => {
-          that.showShareTips = true;
-          that.shareTipText = '分享成功'
-        },1000);
-
-        setTimeout(() => {
-          that.showShareTips = false;
-        },2500);
         that.shares();
       },
       error() {
-        that.showNoLetter = false;
-        setTimeout(() => {
-          that.showShareTips = true;
-          that.shareTipText = '分享失败'
-        },1000);
-
-        setTimeout(() => {
-          that.showShareTips = false;
-        },2500)
       }
     }
     wxapi.ShareAppMessage(opstion);

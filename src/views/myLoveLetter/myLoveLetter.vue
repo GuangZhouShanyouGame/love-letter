@@ -6,9 +6,9 @@
           <swiper :options="swiperOption" ref="mySwiper">
             <swiper-slide v-for="(mail,i) in mails" :key="i">
               <div class="letter-info">
-                <div class="wm">亲爱的XXX：</div>
+                <div class="wm">亲爱的{{auth_data.nickname}}：</div>
                 <div class="letter-m">
-                  {{mail.content}}
+                  <div>{{mail.content}}</div>
                 </div>
                 <div class="u-info">
                   <img class="u-avatar" v-if="mail.headimgurl !== null" :src="mail.headimgurl" :alt="mail.nickname">
@@ -22,17 +22,16 @@
             <div class="swiper-button-prev" slot="button-prev"></div>
             <div class="swiper-button-next" slot="button-next"></div>
           </swiper>
+        </div>
+        <div class="btns-wp">
+          <a href="javascript:;" class="btn-link return-home" @click="onReturnHome"></a>
+          <a href="javascript://" class="btn-link send-out" @click="onStepOut"></a>
+        </div>
 
-          <div class="btns-wp">
-            <a href="#/home" class="btn-link return-home"></a>
-            <a href="javascript://" class="btn-link send-out" @click="onStepOut"></a>
-          </div>
+        <div class="letter-text"></div>
 
-          <div class="letter-text"></div>
-
-          <div class="logo-wp">
-            <img class="logo-img" src="../../assets/images/logo.png" @click="showBrandEgg = false;" alt="中国巨幕">
-          </div>
+        <div class="logo-wp">
+          <img class="logo-img" src="../../assets/images/logo.png" @click="showBrandEgg = true;" alt="中国巨幕">
         </div>
       </div>
     </div>
