@@ -20,6 +20,8 @@ export default class Layout extends Vue {
   async mounted() {
     wxapi.isweixin();
     this.pagePlayAudio();
+    let Cid = this.getUrlArgStr('cid');
+    console.log(Cid)
 
     const authData = localStorage.getItem('auth_data');
 
@@ -28,7 +30,8 @@ export default class Layout extends Vue {
 
       this.getBoot({
         headimgurl: (<any>this.auth_data).headimgurl,
-        nickname: (<any>this.auth_data).nickname
+        nickname: (<any>this.auth_data).nickname,
+        cid: Cid
       })
     }
 
@@ -68,5 +71,19 @@ export default class Layout extends Vue {
         (<any>audio).play();
       });
     }
+  }
+
+  getUrlArgStr(str) {
+
+    let result = '';
+    const queryFormat = location.search.substr(1).split('&');
+    queryFormat.map((v) => {
+      const formatData = v.split('=');
+      if(formatData[0] === str) {
+        result = formatData[1]
+        return false;
+      }
+    });
+    return result;
   }
 }

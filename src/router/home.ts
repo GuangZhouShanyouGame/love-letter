@@ -14,6 +14,7 @@ function getView(viewName) {
         'myLoveLetter': require('views/myLoveLetter'),
         'write': require('views/write'),
         'borrow': require('views/borrow'),
+        'browse': require('views/browse'),
         'sendOut': require('views/sendOut'),
         'watchMovie': require('views/watchMovie')
         //'defaultView': require('views/home')
@@ -55,6 +56,11 @@ let routes: Router.RouteConfig[] = [
         name: 'borrow',
         path: '/borrow/:openid',
         component:getView('borrow')
+      },
+      {
+        name: 'browse',
+        path: '/browse/:openid',
+        component:getView('browse')
       },
       {
         name: 'sendOut',

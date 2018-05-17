@@ -94,7 +94,6 @@ export default class MyLoveLetter extends Vue {
     clipboard.on('success', function(e) {
       e.clearSelection();
     });
-
      clipboard.on('error', function(e) {});
   }
 
@@ -108,32 +107,13 @@ export default class MyLoveLetter extends Vue {
   wxShareTimeline() {
     const that = this;
     let opstion = {
-      title: wxapi.opstions.title, // 分享标题
-      link: conFig.host + '#/write/' + (<any>that.auth_data).openid, // 分享链接
+      title: '快来围观'+(<any>that.auth_data).nickname+'收到了什么匿名情书', // 分享标题
+      link: conFig.host + '#/browse/' + (<any>that.auth_data).openid, // 分享链接
       imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
-        that.showKeys = false;
-        that.showFlower = false;
-        setTimeout(() => {
-          that.showShareTips = true;
-          that.shareTipText = '分享成功';
-        },1000);
-
-        setTimeout(() => {
-          that.showShareTips = false;
-        },2500);
         that.shares();
       },
       error() {
-        that.showKeys = false;
-        setTimeout(() => {
-          that.showShareTips = true;
-          that.shareTipText = '分享失败'
-        },1000);
-
-        setTimeout(() => {
-          that.showShareTips = false;
-        },2500)
       }
     }
     wxapi.ShareTimeline(opstion);
@@ -143,36 +123,16 @@ export default class MyLoveLetter extends Vue {
   wxShareAppMessage() {
     const that = this;
     let opstion = {
-      title: wxapi.opstions.title, // 分享标题
-      desc: wxapi.opstions.desc,
-      link: conFig.host + '#/write/'+ (<any>that.auth_data).openid, // 分享链接
+      title: '为TA寄出一封匿名情书', // 分享标题
+      desc: '快来围观'+(<any>that.auth_data).nickname+'收到了什么匿名情书',
+      link: conFig.host + '#/browse/'+ (<any>that.auth_data).openid, // 分享链接
       imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
-        that.showKeys = false;
-        that.showFlower = false;
-        setTimeout(() => {
-          that.showShareTips = true;
-          that.shareTipText = '分享成功'
-        },1000);
-
-        setTimeout(() => {
-          that.showShareTips = false;
-        },2500);
         that.shares();
       },
       error() {
-        that.showKeys = false;
-        setTimeout(() => {
-          that.showShareTips = true;
-          that.shareTipText = '分享失败'
-        },1000);
-
-        setTimeout(() => {
-          that.showShareTips = false;
-        },2500)
       }
     }
-    console.log('[分享给朋友]: ', opstion);
     wxapi.ShareAppMessage(opstion);
   }
 
