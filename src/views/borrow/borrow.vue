@@ -7,7 +7,7 @@
             <swiper-slide v-for="(borrow,i) in borrowData" :key="i">
               <div class="borrow-info">
                 <div class="borrow-info-main">
-                  <div class="borrow-t">亲爱的清醒：</div>
+                  <div class="borrow-t">亲爱的{{userInfo.nickname}}：</div>
                   <div class="borrow-h">
                     <div v-html="borrow.html"></div>
                   </div>

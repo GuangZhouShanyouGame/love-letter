@@ -304,6 +304,8 @@ export default class Borrow extends Vue {
   showTips = false;
   tipText = '';
 
+  userInfo = {};
+
   async mounted() {
     this.openid = this.$route.params.openid;
     this.params.to_openid = this.$route.params.openid;
@@ -318,10 +320,22 @@ export default class Borrow extends Vue {
     const currentIndexSpan = document.querySelector('.borrow-current-index')
     currentIndexSpan.innerHTML = this.$refs.mySwiper.swiper.activeIndex
     this.$refs.mySwiper.swiper.on('slideChangeTransitionEnd', () => {
-      
+
       currentIndexSpan.innerHTML = this.$refs.mySwiper.swiper.activeIndex
     })
 
+    this.getBrowseMails({
+      openid: this.openid,
+      offset: 1,
+      limit: 99999
+    })
+  }
+
+  async getBrowseMails(params) {
+    let res = await this.api.getBrowseMails(params);
+    if(res.code === "0") {
+      this.userInfo = res.payload.user;
+    }
   }
 
   //获取范围内的随机数

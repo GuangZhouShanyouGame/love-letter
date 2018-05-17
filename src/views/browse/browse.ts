@@ -62,6 +62,12 @@ export default class Browse extends Vue {
     if(this.openid === (<any>this.auth_data).openid) {
       this.$router.replace('/home')
     }
+
+    this.getBrowseMails({
+      openid: this.openid,
+      offset: 1,
+      limit: 99999
+    })
   }
 
   async getBrowseMails(params) {
