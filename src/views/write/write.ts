@@ -22,6 +22,11 @@ export default class Write extends Vue {
   async mounted() {
     this.openid = this.$route.params.openid;
     this.params.to_openid = this.$route.params.openid;
+    const myOpenid = JSON.parse(localStorage.getItem('auth_data')).openid
+    // 进入自己的页面，则跳转到首页
+    if(this.openid === myOpenid) {
+      this.$router.replace('/home')
+    }
   }
 
 

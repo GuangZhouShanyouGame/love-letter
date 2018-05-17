@@ -60,7 +60,9 @@ export default class Loading extends Vue {
         conFig.host + '/static/img/flower_heart.png',
         conFig.host + '/static/img/ticket_finish.png',
         conFig.host + '/static/img/ticket.png',
-        conFig.host + '/static/img/brand_egg.png'
+        conFig.host + '/static/img/brand_egg.png',
+        // 预加载字体，为了修复首次进入到借情书页时再加载字体带来的卡顿问题，需要测试
+        conFig.host + '/static/fonts/NotoSerifCJKsc-SemiBold.otf'
       ],
       onStart: function (total) {
         console.log('start:' + total);
