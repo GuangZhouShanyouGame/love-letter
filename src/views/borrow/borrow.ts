@@ -2,6 +2,8 @@
 import Vue from 'components/base'
 import { Component } from 'vue-property-decorator'
 import template from './borrow.vue'
+import wxapi from 'util/wxapi'
+import conFig from 'util/config'
 
 @Component({
   mixins: [template]
@@ -307,18 +309,8 @@ export default class Borrow extends Vue {
 
     this.total = this.borrowData.length;
     const num = this.randNum(0,this.total);
-    this.$refs.mySwiper.swiper.slideTo(num, 0, false)
-
-    const t = document.body;
-    // t.addEventListener('touchstart', function (e) {
-    //    console.log('aaa')
-    //    e.preventDefault()
-    // })
-
-    t.addEventListener('touchmove', function(e) {
-      console.log('bbbb')
-      e.preventDefault()
-    })
+    this.$refs.mySwiper.swiper.slideTo(num, 0, false);
+    wxapi.wxRegister(this.wxRegCallback);
   }
 
   //获取范围内的随机数
@@ -348,5 +340,48 @@ export default class Borrow extends Vue {
 
   onReturnWrite() {
     this.$router.push({path:'/write/' + this.openid})
+  }
+
+  //[wxRegCallback 用于微信JS-SDK回调]
+  wxRegCallback () {
+    this.wxShareTimeline();
+    this.wxShareAppMessage();
+  }
+
+  // 分享到朋友圈
+  wxShareTimeline() {
+    const that = this;
+    let opstion = {
+      title: '快来围观xxx（微信昵称）收到了什么匿名情书', // 分享标题
+      link: conFig.host + '#/write/' + that.openid, // 分享链接
+      imgUrl: wxapi.opstions.imgUrl,// 分享图标
+      success() {
+        that.shares();
+      },
+      error() {
+      }
+    }
+    wxapi.ShareTimeline(opstion);
+  }
+
+  // 分享给朋友
+  wxShareAppMessage() {
+    const that = this;
+    let opstion = {
+      title: '为TA寄出一封匿名情书', // 分享标题
+      desc: '快来围观xxx（微信昵称）收到了什么匿名情书',
+      link: conFig.host + '#/write/'+ that.openid, // 分享链接
+      imgUrl: wxapi.opstions.imgUrl,// 分享图标
+      success() {
+        that.shares();
+      },
+      error() {}
+    }
+    wxapi.ShareAppMessage(opstion);
+  }
+
+  // 分享成功时调用
+  async shares() {
+    let res = await this.api.shares();
   }
 }

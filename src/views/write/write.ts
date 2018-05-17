@@ -68,7 +68,7 @@ export default class Write extends Vue {
   wxShareTimeline() {
     const that = this;
     let opstion = {
-      title: wxapi.opstions.title, // 分享标题
+      title: '快来围观xxx（微信昵称）收到了什么匿名情书', // 分享标题
       link: conFig.host + '#/write/' + that.openid, // 分享链接
       imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
@@ -84,8 +84,8 @@ export default class Write extends Vue {
   wxShareAppMessage() {
     const that = this;
     let opstion = {
-      title: wxapi.opstions.title, // 分享标题
-      desc: wxapi.opstions.desc,
+      title: '为TA寄出一封匿名情书', // 分享标题
+      desc: '快来围观xxx（微信昵称）收到了什么匿名情书',
       link: conFig.host + '#/write/'+ that.openid, // 分享链接
       imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
