@@ -27,7 +27,12 @@ export default class WatchMovie extends Vue {
 
   async mounted() {
     this.keys = this.$route.params.keys;
-    this.auth_data = JSON.parse(cookie.cookie.get('auth_data'));
+
+    const authData = localStorage.getItem('auth_data');
+    if(authData !== null) {
+      this.auth_data = JSON.parse(authData);
+    }
+
     this.getKeyMail(this.keys);
   }
 
