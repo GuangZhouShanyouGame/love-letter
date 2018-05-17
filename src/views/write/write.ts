@@ -16,6 +16,8 @@ export default class Write extends Vue {
 
   showBrandEgg = false;
 
+  auth_data = {};
+
   openid = '';
 
   showTips = false;
@@ -27,19 +29,22 @@ export default class Write extends Vue {
 
     wxapi.wxRegister(this.wxRegCallback);
 
-    const myOpenid = JSON.parse(localStorage.getItem('auth_data')).openid
-    // 进入自己的页面，则跳转到首页
-    if(this.openid === myOpenid) {
-      this.$router.replace('/home')
+
+    const authData = localStorage.getItem('auth_data');
+    if(authData) {
+      this.auth_data = JSON.parse(authData)
     }
 
+    // 进入自己的页面，则跳转到首页
+    if(this.openid === (<any>this.auth_data).openid) {
+      this.$router.replace('/home')
+    }
   }
-
 
   onSendOut() {
     if(this.params.content ==='') {
       this.showTips = true;
-      this.tipText = '内容不能为空';
+      this.tipText = '你的情书还未落笔';
       setTimeout(() => {
         this.showTips = false;
       },1500);

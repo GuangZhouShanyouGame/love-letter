@@ -1,1 +1,185 @@
 @import "base";
+
+@font-face {
+  font-family: HandBook;
+  src: url("../../assets/front/handbook.ttf");
+}
+
+@font-face {
+  font-family: NotoSerifCJKsc-SemiBold;
+  src: url("../../assets/front/NotoSerifCJKsc-SemiBold.otf");
+}
+
+.borrow-wp {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #c1c6cc;
+
+  .borrow-cont {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url("../../assets/images/write_top_bg.png") no-repeat;
+    background-size: contain;
+    background-position: top center;
+  }
+
+  .borrow-bg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: (70 / 75) * 1rem;
+    background: url("../../assets/images/write_bottom_bg.png") no-repeat;
+    background-size: contain;
+    background-position: bottom center;
+  }
+
+  .borrow-main {
+    position: relative;
+  }
+
+  .borrow-info {
+    position: relative;
+    width: (620 / 75) * 1rem;
+    height: (789 / 75) * 1rem;
+    padding-top: (35/ 75) * 1rem;
+    margin: 0 auto;
+    background: url("../../assets/images/write_xinzhi.png") no-repeat;
+    background-size: contain;
+    background-position: top center;
+    font-family: NotoSerifCJKsc-SemiBold;
+    letter-spacing: (2 / 75) * 1rem;
+    color: #0f0503;
+  }
+
+  .borrow-info-main {
+    position: relative;
+    width: (548 / 75) * 1rem;
+    height: (700 / 75) * 1rem;
+    padding: (40 / 75) * 1rem;
+    margin: 0 auto;
+  }
+
+  .borrow-t {
+    position: relative;
+    font-size: (28 / 75) * 1rem;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .borrow-h {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: (520 / 75) * 1rem;
+    font-size: (26 / 75) * 1rem;
+    line-height: (40 / 75) * 1rem;
+  }
+
+  .u-info {
+    position: relative;
+    height: (70 / 75) * 1rem;
+    margin-top: (15 / 75) * 1rem;
+    line-height: (70 / 75) * 1rem;
+    vertical-align: middle;
+    text-align: right;
+
+    .u-avatar {
+      display: inline-block;
+      width: (70 / 75) * 1rem;
+      height: (70 / 75) * 1rem;
+      vertical-align: middle;
+      border-radius: (70 / 75) * 1rem;
+      overflow: hidden;
+    }
+
+    .u-name {
+      display: inline-block;
+      margin-left: (10 / 75) * 1rem;
+      font-size: (28 / 75) * 1rem;
+      font-weight: 500;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: (70 / 75) * 1rem;
+    height: (85 / 75) * 1rem;
+    background-size: (70 / 75) * 1rem (85 / 75) * 1rem;
+    outline: none;
+    text-decoration: none;
+  }
+
+  .swiper-button-prev {
+    background-image: url("../../assets/images/l_arrow.png");
+    left: 0;
+  }
+
+  .swiper-button-next {
+    background-image: url("../../assets/images/r_arrow.png");
+    right: 0;
+  }
+
+  .borrow-total {
+    position: relative;
+    width: 100%;
+    margin: (10 / 75) *1rem 0 (20 / 75) *1rem;
+    font-size: (28 / 75) * 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #343333;
+  }
+
+  .btns-wp {
+    position: relative;
+    margin-top: (5 /75) * 1rem;
+    text-align: center;
+
+    .btn-link {
+      display: inline-block;
+      margin: 0 (26 / 75) * 1rem (23/ 75) * 1rem;
+      text-decoration: none;
+      cursor: pointer;
+
+      &.write-btn {
+        width: (286 / 75) * 1rem;
+        height: (86 / 75) * 1rem;
+        background: url("../../assets/images/browse_btn.png") no-repeat;
+        background-size: contain;
+        background-position: top center;
+      }
+    }
+  }
+
+  .logo-wp {
+    position: relative;
+    text-align: center;
+
+    .logo-img {
+      width: (144 / 75) * 1rem;
+      height: (60 / 75) * 1rem;
+      vertical-align: middle;
+      outline: none;
+      overflow: hidden;
+    }
+  }
+
+  .tips {
+    z-index: 10;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: (180 / 75) * 1rem;
+    height: (50 / 75) * 1rem;
+    margin-top: - (25 / 75) * 1rem;
+    margin-left: - (90 / 75) * 1rem;
+    font-size: (26 / 75) * 1rem;
+    color: #fff;
+    line-height: (50 / 75) * 1rem;
+    text-align: center;
+    border-radius: (6 / 75) * 1rem;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}

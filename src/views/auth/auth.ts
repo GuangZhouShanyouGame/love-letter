@@ -3,6 +3,7 @@ import Vue from 'components/base'
 import { Component } from 'vue-property-decorator'
 import template from './auth.vue'
 import getjwt from 'util/getjwt'
+import conFig from 'util/config'
 import * as cookie from 'cookie_js'
 
 @Component({
@@ -26,7 +27,7 @@ export default class Auth extends Vue {
       if(authData === null) {
         localStorage.setItem('router', this.$route.query.router);
         const newUrl = 'http://' + host + pathname;
-        const wxappid = 'wx86c9e036cd37b848';
+        const wxappid = conFig.wxappid;
         const redirect_uri = "http://auth.24haowan.com/auth?wxappid=" + wxappid + "&redirect_uri="+ newUrl + "&id=666&type=snsapi_userinfo";
         location.href = redirect_uri;
       }else {

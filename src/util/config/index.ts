@@ -13,7 +13,8 @@ const getUrlArgStr = (str) => {
 }
 
 const conFig = {
-  host: 'http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/index.html?cid=' + getUrlArgStr('cid')
+  host: 'http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/index.html?cid=' + getUrlArgStr('cid'),
+  wxappid: 'wx9887c57cda0c0049'
 }
 
 export default conFig
