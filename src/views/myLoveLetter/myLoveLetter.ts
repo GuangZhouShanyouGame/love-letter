@@ -91,8 +91,13 @@ export default class MyLoveLetter extends Vue {
   fuzhi(){
     const clipboard = new Clipboard('.btn-fuzhi');
 
-    clipboard.on('success', function(e) {
+    clipboard.on('success', e => {
       e.clearSelection();
+      this.showShareTips = true;
+      this.shareTipText = '复制成功';
+      setTimeout(() => {
+        this.showShareTips = false;
+      }, 3000);
     });
      clipboard.on('error', function(e) {});
   }

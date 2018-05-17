@@ -1,7 +1,7 @@
 @import "base";
 @font-face {
-  font-family: NotoSerifCJKsc-SemiBold-compress;
-  src: url("../../assets/front/SourceHanSerifCN-Bold-compress.ttf");
+  font-family: SourceHanSerifCN-Bold-compress2;
+  src: url("../../assets/front/SourceHanSerifCN-Bold-compress2.ttf");
 }
 .loading-wp {
   position: relative;
@@ -56,7 +56,7 @@
     font-weight: 500;
     text-align: center;
     vertical-align: bottom;
-    font-family: NotoSerifCJKsc-SemiBold-compress;
+    font-family: SourceHanSerifCN-Bold-compress2;
     span {
       font-size: (40 / 75) * 1rem;
     }

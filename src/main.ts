@@ -33,6 +33,14 @@ const loadScript = function(url) {
 
 loadScript('http://24haowan-cdn.shanyougame.com/public/js/vconsole.min.js')
 
+var _hmt = _hmt || [];
+(function () {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1134b1f1b1b88621c5467480ef715d35";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+
 Vue.use(svgicon, {
   tagName: 'icon'
 })

@@ -1,15 +1,10 @@
 @import "base";
 
-@font-face {
-  font-family: HandBook;
-  src: url("../../assets/front/handbook.ttf");
-}
 
 @font-face {
-  font-family: NotoSerifCJKsc-SemiBold;
-  src: url("../../assets/front/NotoSerifCJKsc-SemiBold.otf");
+  font-family: SourceHanSerifCN-Bold-compress2;
+  src: url("../../assets/front/SourceHanSerifCN-Bold-compress2.ttf");
 }
-
 .borrow-wp {
   position: relative;
   width: 100%;
@@ -37,6 +32,10 @@
 
   .borrow-main {
     position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
 
   .borrow-info {
@@ -56,7 +55,7 @@
     justify-content: center;
     width: 100%;
     height: (595 / 75) * 1rem;
-    font-family: NotoSerifCJKsc-SemiBold;
+    font-family: SourceHanSerifCN-Bold-compress2;
     font-size: (26 / 75) * 1rem;
     line-height: (40 / 75) * 1rem;
     letter-spacing: (2 / 75) * 1rem;
@@ -66,16 +65,17 @@
     padding-right: (35 / 75) * 1rem;
     margin-top: (25 / 75) * 1rem;
     text-align: right;
-    font-family: NotoSerifCJKsc-SemiBold;
+    font-family: SourceHanSerifCN-Bold-compress2;
     font-size: (26 / 75) * 1rem;
   }
 
   .borrow-total {
-    margin-top: (40/ 75) * 1rem;
+    margin-top: (0) * 1rem;
     font-size: (28 / 75) * 1rem;
     font-weight: bold;
     text-align: center;
     color: #343333;
+    height: 0;
   }
 
   .swiper-button-prev,

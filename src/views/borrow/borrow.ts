@@ -316,10 +316,9 @@ export default class Borrow extends Vue {
 
     // 用vue变量绑定dom会卡顿，应该是swiper的bug。暂时没有更快捷优雅的办法解决
     const currentIndexSpan = document.querySelector('.borrow-current-index')
-    currentIndexSpan.innerHTML = this.$refs.mySwiper.swiper.activeIndex
+    currentIndexSpan.innerHTML = this.$refs.mySwiper.swiper.realIndex + 1
     this.$refs.mySwiper.swiper.on('slideChangeTransitionEnd', () => {
-      
-      currentIndexSpan.innerHTML = this.$refs.mySwiper.swiper.activeIndex
+      currentIndexSpan.innerHTML = this.$refs.mySwiper.swiper.realIndex + 1
     })
 
   }
