@@ -11,14 +11,13 @@
                 </div>
                 <div class="borrow-d">{{borrow.name}}</div>
               </div>
-              <div class="borrow-total">
-                {{i+1}} / {{total}}
-              </div>
             </swiper-slide>
             <div class="swiper-button-prev" slot="button-prev"></div>
             <div class="swiper-button-next" slot="button-next"></div>
           </swiper>
-
+          <div class="borrow-total">
+            <span class="borrow-current-index"></span> / {{borrowData.length}}
+          </div>
           <div class="btns-wp">
             <a href="javascript:;" class="btn-link write-btn" @click="onReturnWrite"></a>
             <a href="javascript:;" class="btn-link borrow-btn"></a>

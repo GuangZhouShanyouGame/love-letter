@@ -23,7 +23,8 @@ export default class Borrow extends Vue {
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
-    }
+    },
+    loop: true
   }
 
   $refs:{
@@ -309,8 +310,18 @@ export default class Borrow extends Vue {
 
     this.total = this.borrowData.length;
     const num = this.randNum(0,this.total);
+
     this.$refs.mySwiper.swiper.slideTo(num, 0, false);
     wxapi.wxRegister(this.wxRegCallback);
+
+    // 用vue变量绑定dom会卡顿，应该是swiper的bug。暂时没有更快捷优雅的办法解决
+    const currentIndexSpan = document.querySelector('.borrow-current-index')
+    currentIndexSpan.innerHTML = this.$refs.mySwiper.swiper.activeIndex
+    this.$refs.mySwiper.swiper.on('slideChangeTransitionEnd', () => {
+      
+      currentIndexSpan.innerHTML = this.$refs.mySwiper.swiper.activeIndex
+    })
+
   }
 
   //获取范围内的随机数

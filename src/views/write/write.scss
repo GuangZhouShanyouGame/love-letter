@@ -1,5 +1,8 @@
 @import "base";
-
+@font-face {
+  font-family: NotoSerifCJKsc-SemiBold;
+  src: url("../../assets/front/NotoSerifCJKsc-SemiBold.otf");
+}
 .write-wp {
   position: relative;
   width: 100%;
@@ -54,12 +57,13 @@
       vertical-align: middle;
       border: none;
       background: transparent;
+      font-family: NotoSerifCJKsc-SemiBold;
     }
   }
 
   .btns-wp {
     position: relative;
-    margin-top: (40 /75) * 1rem;
+    margin-top: ((40 + 50) /75) * 1rem;
     text-align: center;
 
     .btn-link {
