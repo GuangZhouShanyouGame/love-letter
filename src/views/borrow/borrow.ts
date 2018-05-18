@@ -380,7 +380,7 @@ export default class Borrow extends Vue {
     const that = this;
     let opstion = {
       title: '520给我寄出一封匿名情书，开始我们的故事吧', // 分享标题
-      link: conFig.host + '#/write/' + that.openid, // 分享链接
+      link: conFig.host + '#/write/' + JSON.parse(localStorage.getItem('auth_data')).openid, // 分享链接
       imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
         that.shares();
@@ -397,7 +397,7 @@ export default class Borrow extends Vue {
     let opstion = {
       title: '为TA寄出一封匿名情书', // 分享标题
       desc: '520给我寄出一封匿名情书，开始我们的故事吧',
-      link: conFig.host + '#/write/' + that.openid, // 分享链接
+      link: conFig.host + '#/write/' + JSON.parse(localStorage.getItem('auth_data')).openid, // 分享链接
       imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
         that.shares();

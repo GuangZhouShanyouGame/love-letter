@@ -4,7 +4,8 @@
       <div class="write-bg">
         <div class="write-main">
           <div class="write-info">
-            <textarea v-model="params.content" class="write-textarea" maxlength="80" placeholder="点击输入你的匿名情书(80字以内)"></textarea>
+            <textarea v-model="params.content" class="write-textarea" maxlength="80" @focus="showHolder = false" @blur="params.content.length > 0 ? showHolder = false : showHolder = true"></textarea>
+            <p class="placeHolder" v-show="showHolder">点击输入你的匿名情书(80字以内)</p>
           </div>
         </div>
         <div class="btns-wp">

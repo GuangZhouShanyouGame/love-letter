@@ -90,8 +90,9 @@ export default class Loading extends Vue {
       onComplete: function (total) {
         //alert('加载完毕:' + total + '个资源');
         // that.$router.push({path:'/home'});
-        const currentRouter = localStorage.getItem('router')
+        let currentRouter = localStorage.getItem('router')
         localStorage.removeItem('router');
+        currentRouter = currentRouter === '/' ? '/home' : currentRouter
         that.$router.replace(currentRouter || '/home');
       }
     });

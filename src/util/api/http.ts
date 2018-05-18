@@ -58,6 +58,7 @@ methods.forEach(v => {
     }, (error) => Promise.reject(error))
     // Add a response interceptor
     instance.interceptors.response.use(response => {
+      
       if (!isSuccess(response.data)) {
         const _err = {
           msg: response.data.msg,
@@ -65,6 +66,7 @@ methods.forEach(v => {
           type: HTTPERROR[HTTPERROR.LOGICERROR],
           config: response.config
         }
+        
         // cbLogicError && cbLogicError.call(null, _err);
         return Promise.reject(_err)
       }
@@ -73,7 +75,8 @@ methods.forEach(v => {
       const _err = {
         msg: error.message || '网络故障',
         type: /^timeout of/.test(error.message) ? HTTPERROR[HTTPERROR.TIMEOUTERROR] : HTTPERROR[HTTPERROR.NETWORKERROR],
-        config: error.config
+        config: error.config,
+        data: error.response.data
       }
       // cbNetworkError && cbNetworkError.call(null, _err);
       return Promise.reject(_err)

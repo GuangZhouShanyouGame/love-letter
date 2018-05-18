@@ -23,6 +23,8 @@ export default class WatchMovie extends Vue {
   }
 
   showTicket = false;
+  // 博纳不显示按钮
+  showTicketBtn = true;
 
   ticketcode = '';
 
@@ -66,23 +68,37 @@ export default class WatchMovie extends Vue {
   onWatchMovie() {
     this.getTicket({key: this.keys});
   }
-  getTicekt(url) {
+  goTicekt(url) {
     window.location.href = url
   }
   //
   async getTicket(params) {
-    let res = await this.api.getTicket(params);
-    // const res = { "payload": { "cid": "zy", "film_code": "1989051770298830", "url": "http://m.hengdafilm.com/app/HENGDA_H5_PROD_S_MPS/version408/location/index?wapid=HENGDA_H5_PROD_S_MPS" }, "code": "0", "msg": "ok" }
+    let res = await this.api.getTicket(params).catch(res => {
+      const data = res.err.data
+      // 
+      if (data.code === "1002") {
+        this.showTicketFinish = true;
+        if (res.payload.cid === 'bn') {
+          this.showTicketBtn = false
+        } else {
+          this.showTicketBtn = true
+        }
+        this.buyTicketUrl = data.payload.url
+      }
+    });
+    // const res = { "payload": { "cid": "bn", "film_code": "1989051770298830", "url": "http://m.hengdafilm.com/app/HENGDA_H5_PROD_S_MPS/version408/location/index?wapid=HENGDA_H5_PROD_S_MPS" }, "code": "0", "msg": "ok" }
     if(res.code === "0") {
       this.ticketInfo = res.payload;
+      if(res.payload.cid === 'bn') {
+        this.showTicketBtn = false
+      } else {
+        this.showTicketBtn = true
+      }
       this.showTicket = true;
       this.ticketBg = this.ticketMap[res.payload.cid] || require('../../assets/images/tichet-hd.png')
     }
 
-    if(res.code === "1002") {
-      this.showTicketFinish = true;
-      this.buyTicketUrl = res.payload.url
-    }
+    
   }
 
   onReturnHome() {

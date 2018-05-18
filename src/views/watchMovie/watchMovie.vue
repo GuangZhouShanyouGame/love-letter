@@ -39,7 +39,7 @@
       <div class="ticket-cont" :style="{'background-image': `url(${ticketBg})`}">
         <div class="ticket-code">{{ticketInfo.film_code}}</div>
         <div class="ticket-close" @click="showTicket = false;"></div>
-        <div @click="getTicekt(ticketInfo.url)" class="receive-tickets"></div>
+        <div @click="goTicekt(ticketInfo.url)" class="receive-tickets" v-show="showTicketBtn"></div>
       </div>
     </div>
 
