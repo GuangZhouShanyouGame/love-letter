@@ -38,10 +38,11 @@
     <div class="keys-wp" v-if="showKeys">
       <div class="keys-main">
         <div class="qrcode-wp">
-          <img src="../../assets/images/qr-code.png" class="qr-img" alt="">
+          <img src="../../assets/images/qr-code.png" alt="" class="qrcode">
+          <div class="btn-fuzhi" :data-clipboard-text="keyText" @click="fuzhi"></div>
         </div>
-        <a href="javascript:;" class="keys-close" @click="showKeys = false;"></a>
-        <a href="javascript://" class="btn-fuzhi" :data-clipboard-text="keyText" @click="fuzhi"></a>
+        <div class="keys-close" @click="showKeys = false;"></div>
+        
       </div>
     </div>
     <div class="flower-heart" v-if="showFlower" @click="showFlower = false;">

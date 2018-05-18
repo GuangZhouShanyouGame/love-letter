@@ -77,7 +77,7 @@ export default class Loading extends Vue {
         // that.$router.push({path:'/home'});
         const currentRouter = localStorage.getItem('router')
         localStorage.removeItem('router');
-        that.$router.push(currentRouter || '/home');
+        that.$router.replace(currentRouter || '/home');
       }
     });
 
