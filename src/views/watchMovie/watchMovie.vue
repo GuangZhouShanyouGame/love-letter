@@ -36,7 +36,7 @@
     </div>
 
     <div class="ticket" v-if="showTicket">
-      <div class="ticket-cont">
+      <div class="ticket-cont" :style="{'background-image': `url(${ticketBg})`}">
         <div class="ticket-code">{{ticketInfo.film_code}}</div>
         <a href="javascript:;" class="ticket-close" @click="showTicket = false;"></a>
         <a :href="ticketInfo.url" class="receive-tickets"></a>

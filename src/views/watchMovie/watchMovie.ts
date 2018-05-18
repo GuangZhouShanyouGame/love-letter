@@ -24,6 +24,13 @@ export default class WatchMovie extends Vue {
 
   showBrandEgg = false;
 
+  ticketBg = ''
+
+  ticketMap = {
+    'bn': require("../../assets/images/ticket-bn.png"),
+    'zy': require("../../assets/images/ticket-zy.png")
+  }
+
   created() {
     util.handleInception.call(this)
   }
@@ -57,10 +64,11 @@ export default class WatchMovie extends Vue {
   //
   async getTicket(params) {
     let res = await this.api.getTicket(params);
-
     if(res.code === "0") {
       this.ticketInfo = res.payload;
       this.showTicket = true;
+      this.ticketBg = this.ticketMap[res.payload.cid] || require('../../assets/images/tichet-hd.png')
+      console.log(this.ticketMap[res.payload.cid] || require('../../assets/images/tichet-hd.png'))
     }
 
     if(res.code === "1002") {

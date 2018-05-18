@@ -54,13 +54,13 @@ export default class Home extends Vue {
     }
 
     this.shareTimelineOpstion = {
-      title: '快来围观' + (<any>this.auth_data).nickname + '收到了什么匿名情书',
+      title: '520给我寄出一封匿名情书，开始我们的故事吧',
       link: conFig.host + '#/write/' + (<any>this.auth_data).openid
     }
 
     this.shareAppMessageOpstion = {
       title: '为TA寄出一封匿名情书', // 分享标题
-      desc: '快来围观' + (<any>this.auth_data).nickname + '收到了什么匿名情书',
+      desc: '520给我寄出一封匿名情书，开始我们的故事吧',
       link: conFig.host + '#/write/' + (<any>this.auth_data).openid, // 分享链接
     }
     wxapi.wxRegister(this.wxRegCallback);
