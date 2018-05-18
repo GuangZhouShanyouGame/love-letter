@@ -9,7 +9,7 @@ export default {
     const host = window.location.host;
     const pathname = window.location.pathname;
 
-    const {hw_auth_code} = this.formatQuery(href);
+    const {hw_auth_code, cid} = this.formatQuery(href);
     const newhw_auth_code = hw_auth_code.split('#/')[0];
     const res = await api.get24authCode(newhw_auth_code);
     if(res.code === 0) {
@@ -17,7 +17,13 @@ export default {
 
       localStorage.setItem('auth_data', JSON.stringify(data));
       const url = window.location.href.split('?')[0];
-      location.href = 'http://' + host + pathname;
+      console.log('http://' + host + pathname + '?cid=' + cid)
+      if(cid) {
+        location.href = 'http://' + host + pathname + '?cid=' + (cid + '');
+      } else {
+        location.href = 'http://' + host + pathname;
+      }
+      
       return false;
     } else {
       return false;

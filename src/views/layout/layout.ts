@@ -19,7 +19,7 @@ export default class Layout extends Vue {
     wxapi.isweixin();
     this.pagePlayAudio();
     let Cid = this.getUrlArgStr('cid');
-
+    // console.log(cid)
     const authData = localStorage.getItem('auth_data');
 
     if(authData !== null) {

@@ -26,7 +26,8 @@ export default class Auth extends Vue {
     } else {
       if(authData === null) {
         localStorage.setItem('router', this.$route.query.router);
-        const newUrl = 'http://' + host + pathname;
+        // const newUrl = 'http://' + host + pathname;
+        const newUrl = encodeURIComponent(location.href);
         const wxappid = conFig.wxappid;
         const redirect_uri = "http://auth.24haowan.com/auth?wxappid=" + wxappid + "&redirect_uri="+ newUrl + "&id=666&type=snsapi_userinfo";
         location.href = redirect_uri;
