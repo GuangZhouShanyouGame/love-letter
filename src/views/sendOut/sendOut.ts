@@ -4,6 +4,7 @@ import { Component } from 'vue-property-decorator'
 import template from './sendOut.vue'
 import wxapi from 'util/wxapi'
 import conFig from 'util/config'
+import util from 'util/index'
 
 @Component({
   mixins: [template]
@@ -12,7 +13,9 @@ export default class SendOut extends Vue {
   showBrandEgg = false;
 
   openid = '';
-
+  created() {
+    util.handleInception.call(this)
+  }
   async mounted() {
     this.openid = this.$route.params.openid;
     wxapi.wxRegister(this.wxRegCallback);

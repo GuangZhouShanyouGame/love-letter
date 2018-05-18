@@ -1,0 +1,34 @@
+@import "base";
+@function trem($px) {
+    @return $px/75*1rem;
+}
+.interception{
+    background-image: url(../../assets/images/write_top_bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    padding-top: trem(208);
+    .poster{
+        background-image: url(../../assets/images/bg_interception.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: trem(300);
+        height: trem(600);
+        margin: 0 auto;
+    }
+    .logo{
+        position: absolute;
+        background-image: url(../../assets/images/logo.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: trem(144);
+        height: trem(64);
+        margin-left: trem(-72);
+        left: 50%;
+        bottom: trem(32);
+    }
+}

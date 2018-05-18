@@ -16,7 +16,8 @@ function getView(viewName) {
         'borrow': require('views/borrow'),
         'browse': require('views/browse'),
         'sendOut': require('views/sendOut'),
-        'watchMovie': require('views/watchMovie')
+        'watchMovie': require('views/watchMovie'),
+        'interception': require('views/interception')
         //'defaultView': require('views/home')
       }
 
@@ -71,6 +72,11 @@ let routes: Router.RouteConfig[] = [
         name: 'watchMovie',
         path: '/watchMovie/:keys',
         component:getView('watchMovie')
+      },
+      {
+        name: 'interception',
+        path: '/interception',
+        component: getView('interception')
       }
     ]
   }

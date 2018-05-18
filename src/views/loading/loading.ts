@@ -48,7 +48,7 @@ export default class Loading extends Vue {
         conFig.host + '/static/img/shouye_myLetter.png',
         conFig.host + '/static/img/shouye_share.png',
         conFig.host + '/static/img/shouye_title.png',
-        conFig.host + '/static/img/shouye_xinfeng.png',
+        conFig.host + '/static/img/shouye_xinfeng2.png',
         conFig.host + '/static/img/shoye_bg_01.png',
         conFig.host + '/static/img/watchMovie_btn.png',
         conFig.host + '/static/img/write_borrow_btn_select.png',
@@ -57,13 +57,13 @@ export default class Loading extends Vue {
         conFig.host + '/static/img/write_btn_select.png',
         conFig.host + '/static/img/write_btn.png',
         conFig.host + '/static/img/write_top_bg.png',
-        conFig.host + '/static/img/write_xinzhi.png',
+        conFig.host + '/static/img/write_xinzhi2.png',
         conFig.host + '/static/img/write-again.png',
         conFig.host + '/static/img/write-sendOut.png',
         conFig.host + '/static/img/flower_heart.png',
         conFig.host + '/static/img/ticket_finish.png',
         conFig.host + '/static/img/ticket.png',
-        conFig.host + '/static/img/brand_egg.png'
+        conFig.host + '/static/img/brand_egg.gif'
       ],
       onStart: function (total) {
         console.log('start:' + total);

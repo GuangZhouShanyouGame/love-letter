@@ -3,6 +3,7 @@ import { Component, Watch, Prop } from 'vue-property-decorator'
 import template from './home.vue'
 import wxapi from 'util/wxapi'
 import conFig from 'util/config'
+import util from 'util/index'
 // import * as cookie from 'cookie_js'
 
 @Component({
@@ -34,7 +35,9 @@ export default class Home extends Vue {
     desc: '520给我寄出一封匿名情书，开始我们的故事吧',
     link: conFig.host, // 分享链接
   }
-
+  created() {
+    util.handleInception.call(this)
+  }
   async mounted() {
     const authData = localStorage.getItem('auth_data');
 

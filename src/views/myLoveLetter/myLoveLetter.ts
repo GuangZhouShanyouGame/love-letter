@@ -5,6 +5,7 @@ import template from './myLoveLetter.vue'
 import * as Clipboard from 'clipboard'
 import wxapi from 'util/wxapi'
 import conFig from 'util/config'
+import util from 'util/index'
 // import * as cookie from 'cookie_js'
 
 @Component({
@@ -38,9 +39,9 @@ export default class MyLoveLetter extends Vue {
   }
 
   async created() {
+    util.handleInception.call(this)
     this.getMails();
   }
-
   async mounted() {
     const authData = localStorage.getItem('auth_data');
 
@@ -48,6 +49,14 @@ export default class MyLoveLetter extends Vue {
       this.auth_data = JSON.parse(authData);
     }
     wxapi.wxRegister(this.wxRegCallback);
+
+    // 用vue变量绑定dom会卡顿，应该是swiper的bug。暂时没有更快捷优雅的办法解决
+    const currentIndexSpan = document.querySelector('.borrow-current-index')
+    currentIndexSpan.innerHTML = this.$refs.mySwiper.swiper.activeIndex + 1;
+    this.$refs.mySwiper.swiper.on('slideChangeTransitionEnd', () => {
+
+      currentIndexSpan.innerHTML = this.$refs.mySwiper.swiper.activeIndex + 1;
+    })
   }
 
   // 获取信件列表

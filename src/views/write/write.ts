@@ -4,6 +4,7 @@ import { Component } from 'vue-property-decorator'
 import template from './write.vue'
 import wxapi from 'util/wxapi'
 import conFig from 'util/config'
+import util from 'util/index'
 
 @Component({
   mixins: [template]
@@ -16,10 +17,16 @@ export default class Write extends Vue {
 
   showBrandEgg = false;
 
+  auth_data = {};
+
   openid = '';
 
   showTips = false;
   tipText = '';
+
+  created () {
+    util.handleInception.call(this)   
+  }
 
   async mounted() {
     this.openid = this.$route.params.openid;
@@ -27,19 +34,22 @@ export default class Write extends Vue {
 
     wxapi.wxRegister(this.wxRegCallback);
 
-    const myOpenid = JSON.parse(localStorage.getItem('auth_data')).openid
-    // 进入自己的页面，则跳转到首页
-    if(this.openid === myOpenid) {
-      this.$router.replace('/home')
+
+    const authData = localStorage.getItem('auth_data');
+    if(authData) {
+      this.auth_data = JSON.parse(authData)
     }
 
+    // 进入自己的页面，则跳转到首页
+    if(this.openid === (<any>this.auth_data).openid) {
+      this.$router.replace('/home')
+    }
   }
-
 
   onSendOut() {
     if(this.params.content ==='') {
       this.showTips = true;
-      this.tipText = '内容不能为空';
+      this.tipText = '你的情书还未落笔';
       setTimeout(() => {
         this.showTips = false;
       },1500);

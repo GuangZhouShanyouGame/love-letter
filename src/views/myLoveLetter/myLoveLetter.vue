@@ -6,17 +6,16 @@
           <swiper :options="swiperOption" ref="mySwiper">
             <swiper-slide v-for="(mail,i) in mails" :key="i">
               <div class="letter-info">
-                <div class="wm">亲爱的{{auth_data.nickname}}：</div>
-                <div class="letter-m">
-                  <div>{{mail.content}}</div>
+                <div class="letter-info-main">
+                  <div class="wm">亲爱的{{auth_data.nickname}}：</div>
+                  <div class="letter-m">
+                    <div>{{mail.content}}</div>
+                  </div>
+                  <div class="u-info">
+                    <img class="u-avatar" v-if="mail.headimgurl !== null" :src="mail.headimgurl" :alt="mail.nickname">
+                    <span class="u-name">{{mail.nickname === null ? '匿名好友': mail.nickname}}</span>
+                  </div>
                 </div>
-                <div class="u-info">
-                  <img class="u-avatar" v-if="mail.headimgurl !== null" :src="mail.headimgurl" :alt="mail.nickname">
-                  <span class="u-name">{{mail.nickname === null ? '匿名好友': mail.nickname}}</span>
-                </div>
-              </div>
-              <div class="letter-total">
-                {{i+1}} / {{mailsTotal}}
               </div>
             </swiper-slide>
             <div class="swiper-button-prev" slot="button-prev"></div>
@@ -24,6 +23,7 @@
           </swiper>
         </div>
         <div class="btns-wp">
+          <div class="letter-total" v-show="mails.length !==0"><span class="borrow-current-index"></span> / {{mailsTotal}}</div>
           <a href="javascript:;" class="btn-link return-home" @click="onReturnHome"></a>
           <a href="javascript://" class="btn-link send-out" @click="onStepOut"></a>
         </div>

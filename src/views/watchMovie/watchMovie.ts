@@ -3,6 +3,7 @@ import {Component} from 'vue-property-decorator'
 import template from './watchMovie.vue'
 import wxapi from 'util/wxapi'
 import conFig from 'util/config'
+import util from 'util/index'
 
 @Component({mixins: [template]})
 export default class WatchMovie extends Vue {
@@ -23,7 +24,8 @@ export default class WatchMovie extends Vue {
 
   showBrandEgg = false;
 
-  async created() {
+  created() {
+    util.handleInception.call(this)
   }
 
   async mounted() {

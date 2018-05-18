@@ -24,29 +24,48 @@
     position: relative;
     width: 100%;
     height: 100%;
-    padding-top: (106 / 75) * 1rem;
+    padding-top: (70 / 75) * 1rem;
     background: url("../../assets/images/write_bottom_bg.png") no-repeat;
     background-size: contain;
     background-position: bottom center;
-  }
-
-  .borrow-main {
     position: relative;
-    height: 100%;
+    // height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
   }
 
+  .borrow-main {
+    
+  }
+
   .borrow-info {
     position: relative;
-    width: (544 / 75) * 1rem;
-    height: (700 / 75) * 1rem;
+    width: (620 / 75) * 1rem;
+    height: (789 / 75) * 1rem;
+    padding-top: (35/ 75) * 1rem;
     margin: 0 auto;
-    background: url("../../assets/images/write_xinzhi.png") no-repeat;
+    background: url("../../assets/images/write_xinzhi2.png") no-repeat;
     background-size: contain;
     background-position: top center;
+    font-family: NotoSerifCJKsc-SemiBold;
+    letter-spacing: (2 / 75) * 1rem;
     color: #0f0503;
+  }
+
+  .borrow-info-main {
+    position: relative;
+    width: (548 / 75) * 1rem;
+    height: (700 / 75) * 1rem;
+    padding: (40 / 75) * 1rem;
+    margin: 0 auto;
+  }
+
+  .borrow-t {
+    position: relative;
+    font-size: (28 / 75) * 1rem;
+    font-weight: 500;
+    text-align: left;
   }
 
   .borrow-h {
@@ -54,28 +73,15 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: (595 / 75) * 1rem;
-    font-family: SourceHanSerifCN-Bold-compress2;
+    height: (520 / 75) * 1rem;
     font-size: (26 / 75) * 1rem;
     line-height: (40 / 75) * 1rem;
-    letter-spacing: (2 / 75) * 1rem;
   }
 
   .borrow-d {
-    padding-right: (35 / 75) * 1rem;
-    margin-top: (25 / 75) * 1rem;
+    margin-top: (15 / 75) * 1rem;
     text-align: right;
-    font-family: SourceHanSerifCN-Bold-compress2;
     font-size: (26 / 75) * 1rem;
-  }
-
-  .borrow-total {
-    margin-top: (0) * 1rem;
-    font-size: (28 / 75) * 1rem;
-    font-weight: bold;
-    text-align: center;
-    color: #343333;
-    height: 0;
   }
 
   .swiper-button-prev,
@@ -97,9 +103,21 @@
     right: 0;
   }
 
+  .borrow-total {
+    z-index: 8;
+    position: absolute;
+    left: 0;
+    top: -(40 / 75) * 1rem;
+    width: 100%;
+    font-size: (28 / 75) * 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #343333;
+  }
+
   .btns-wp {
     position: relative;
-    margin-top: (20 /75) * 1rem;
+    margin-top: (5 /75) * 1rem;
     text-align: center;
 
     .btn-link {
@@ -109,16 +127,16 @@
       cursor: pointer;
 
       &.write-btn {
-        width: (262 / 75) * 1rem;
-        height: (108 / 75) * 1rem;
+        width: (275 / 75) * 1rem;
+        height: (111 / 75) * 1rem;
         background: url("../../assets/images/write_btn.png") no-repeat;
         background-size: contain;
         background-position: top center;
       }
 
       &.borrow-btn {
-        width: (250 / 75) * 1rem;
-        height: (86 / 75) * 1rem;
+        width: (275 / 75) * 1rem;
+        height: (111 / 75) * 1rem;
         background: url("../../assets/images/write_borrow_btn_select.png") no-repeat;
         background-size: contain;
         background-position: top center;

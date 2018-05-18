@@ -14,14 +14,11 @@ export default class Layout extends Vue {
 
   auth_data = {};
 
-  async created() {
-  }
 
   async mounted() {
     wxapi.isweixin();
     this.pagePlayAudio();
     let Cid = this.getUrlArgStr('cid');
-    console.log(Cid)
 
     const authData = localStorage.getItem('auth_data');
 

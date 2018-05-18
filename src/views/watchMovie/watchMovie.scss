@@ -44,7 +44,7 @@
     position: relative;
     width: (544 / 75) * 1rem;
     height: (700 / 75) * 1rem;
-    padding: (60 / 75) * 1rem 0 (40 / 75) * 1rem;
+    padding: (60 / 75) * 1rem (40 / 75) * 1rem;
     margin: 0 auto;
     background: url("../../assets/images/myletter_xinzhi.png") no-repeat;
     background-size: contain;
@@ -88,7 +88,7 @@
 
   .wm {
     position: relative;
-    padding-left: (40 / 75) * 1rem;
+    // padding-left: (40 / 75) * 1rem;
     font-size: (28 / 75) * 1rem;
     font-family: SourceHanSerifCN-Bold-compress2;
     font-weight: 500;
