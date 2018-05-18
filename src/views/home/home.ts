@@ -25,6 +25,12 @@ export default class Home extends Vue {
 
   myLetterNum = 0;
 
+  //是否弹出首次分享弹窗
+  myFirstLetter = false;
+
+  showTextTips = false;
+  timer = null
+
   shareTimelineOpstion = {
     title: '为TA寄出一封匿名情书，开始你们的故事吧', // 分享标题
     link: conFig.host, // 分享链接
@@ -45,7 +51,20 @@ export default class Home extends Vue {
       this.auth_data = JSON.parse(authData);
     }
 
+    this.shareTimelineOpstion = {
+      title: '快来围观' + (<any>this.auth_data).nickname + '收到了什么匿名情书',
+      link: conFig.host + '#/write/' + (<any>this.auth_data).openid
+    }
+
+    this.shareAppMessageOpstion = {
+      title: '为TA寄出一封匿名情书', // 分享标题
+      desc: '快来围观' + (<any>this.auth_data).nickname + '收到了什么匿名情书',
+      link: conFig.host + '#/write/' + (<any>this.auth_data).openid, // 分享链接
+    }
+    wxapi.wxRegister(this.wxRegCallback);
+
     this.getMails();
+
   }
 
   async getMails() {
@@ -53,28 +72,26 @@ export default class Home extends Vue {
     if(res.code === "0") {
       if(res.payload.mails.length > 0) {
         this.myLetterNum = res.payload.mails.length;
+        // this.myLetterNum = 0
       } else {
         this.myLetterNum = 0;
-
-        this.shareTimelineOpstion = {
-          title: '快来围观' + (<any>this.auth_data).nickname + '收到了什么匿名情书',
-          link: conFig.host + '#/write/' + (<any>this.auth_data).openid
-        }
-
-        this.shareAppMessageOpstion = {
-          title: '为TA寄出一封匿名情书', // 分享标题
-          desc: '快来围观'+ (<any>this.auth_data).nickname +'收到了什么匿名情书',
-          link: conFig.host + '#/write/'+ (<any>this.auth_data).openid, // 分享链接
-        }
       }
     }
-    wxapi.wxRegister(this.wxRegCallback);
+  }
+
+  collect() {
+    this.showNoLetter = true;
   }
 
   // 点击我的情书按钮
   onMails() {
     if(this.myLetterNum === 0) {
-      this.showNoLetter = true;
+      // this.showNoLetter = true;
+      this.showTextTips = true
+      clearTimeout(this.timer)
+      this.timer = setTimeout(() => {
+        this.showTextTips = false
+      }, 3000);
     } else {
       this.$router.push({path:'/myLoveLetter'});
     }
@@ -122,6 +139,12 @@ export default class Home extends Vue {
   // 分享成功时调用
   async shares() {
     let res = await this.api.shares();
+    if (res.code === '0' && this.myLetterNum === 0 && res.payload.system_mail === 'Y') {
+      console.log('弹出弹窗')
+      this.myLetterNum++;
+      this.showNoLetter = false;
+      this.myFirstLetter = true
+    }
   }
 }
 

@@ -52,7 +52,7 @@ const wxApi = {
     wx.onMenuShareTimeline({
       title: opstion.title, // 分享标题
       link: opstion.link, // 分享链接
-      imgUrl: opstion.imgUrl, // 分享图标
+      imgUrl: 'http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/share.jpg', // 分享图标
       success(res) {
         console.log(res);
         // 用户成功分享后执行的回调函数
@@ -72,7 +72,7 @@ const wxApi = {
       title: opstion.title, // 分享标题
       desc: opstion.desc, // 分享描述
       link: opstion.link, // 分享链接
-      imgUrl: opstion.imgUrl, // 分享图标
+      imgUrl: 'http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/share.jpg', // 分享图标
       type: opstion.type, // 分享类型,music、video或link，不填默认为link
       dataUrl: opstion.dataUrl, // 如果type是music或video，则要提供数据链接，默认为空
       success(res) {

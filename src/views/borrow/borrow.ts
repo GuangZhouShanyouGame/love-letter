@@ -346,7 +346,7 @@ export default class Borrow extends Vue {
   }
 
   onSendOut() {
-    const item = this.$refs.mySwiper.swiper.snapIndex;
+    const item = this.$refs.mySwiper.swiper.snapIndex - 1;
     this.params.content = this.borrowData[item].content;
     this.postContent(this.params);
   }

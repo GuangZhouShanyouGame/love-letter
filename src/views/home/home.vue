@@ -3,8 +3,9 @@
     <div class="home-bg">
       <img class="home-title" src="../../assets/images/shouye_title.png" alt="给TA寄出匿名情书，开始你们的故事吧">
       <img class="home-xinfeng" src="../../assets/images/shouye_xinfeng2.png" alt="给TA寄出匿名情书，开始你们的故事吧">
-      <div class="home-link" @click="onMails">
-        <div class="home-myletter" alt="给TA寄出匿名情书，开始你们的故事吧"></div>
+      <div class="home-link">
+        <div class="home-myletter" @click="onMails" alt="给TA寄出匿名情书，开始你们的故事吧"></div>
+        <div class="home-collect" @click="collect"></div>
       </div>
     </div>
     <div class="share-cont" v-if="showNoLetter" @click="showNoLetter = false;">
@@ -12,6 +13,13 @@
     </div>
 
     <div class="share-tips" v-if="showShareTips">{{shareTipText}}</div>
+    <div class="share-first-letter" v-if="myFirstLetter">
+      <div class="first-close" @click="myFirstLetter = false"></div>
+      <div class="first-mail"></div>
+      <div class="first-text"></div>
+      <div class="go-first-letter" @click="onMails"></div>
+    </div>
+    <div class="tips-text" v-if="showTextTips">未收到情书</div>
   </div>
 </template>
 <style src="./home.scss" lang="scss" scoped></style>

@@ -51,7 +51,8 @@ var _hmt = _hmt || [];
   var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
-
+// <script type=text / javascript src = "https://unpkg.com/alloylever@1.0.3/alloy-lever.js" > </script>
+// window.vConsole = true
 Vue.use(svgicon, {
   tagName: 'icon'
 })
