@@ -25,6 +25,9 @@
     background: url("../../assets/images/myletter_bottom_bg.png") no-repeat;
     background-size: contain;
     background-position: bottom center;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
   }
 
   .myLoveLetter-main {
@@ -41,7 +44,7 @@
     background: url("../../assets/images/write_xinzhi2.png") no-repeat;
     background-size: contain;
     background-position: top center;
-    font-family: SourceHanSerifCN-Bold-compress2;
+    // font-family: SourceHanSerifCN-Bold-compress2;
     letter-spacing: (2 / 75) * 1rem;
     color: #0f0503;
   }
@@ -160,7 +163,7 @@
     position: relative;
     width: (499 / 75) * 1rem;
     height: (20 / 75) * 1rem;
-    margin: (35/ 75) * 1rem auto 0;
+    margin: (35/ 75) * 1rem auto;
     background: url("../../assets/images/sendOut_text.png") no-repeat;
     background-size: contain;
     background-position: top center;

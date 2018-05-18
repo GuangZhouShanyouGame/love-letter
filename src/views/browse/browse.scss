@@ -1,14 +1,14 @@
 @import "base";
 
-@font-face {
-  font-family: HandBook;
-  src: url("../../assets/front/handbook.ttf");
-}
+// @font-face {
+//   font-family: HandBook;
+//   src: url("../../assets/front/handbook.ttf");
+// }
 
-@font-face {
-  font-family: NotoSerifCJKsc-SemiBold;
-  src: url("../../assets/front/NotoSerifCJKsc-SemiBold.otf");
-}
+// @font-face {
+//   font-family: NotoSerifCJKsc-SemiBold;
+//   src: url("../../assets/front/NotoSerifCJKsc-SemiBold.otf");
+// }
 
 .borrow-wp {
   position: relative;
@@ -48,7 +48,7 @@
     background: url("../../assets/images/write_xinzhi2.png") no-repeat;
     background-size: contain;
     background-position: top center;
-    font-family: NotoSerifCJKsc-SemiBold;
+    // font-family: NotoSerifCJKsc-SemiBold;
     letter-spacing: (2 / 75) * 1rem;
     color: #0f0503;
   }

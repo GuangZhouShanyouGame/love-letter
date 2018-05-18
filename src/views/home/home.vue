@@ -2,7 +2,7 @@
   <div class="home-wp">
     <div class="home-bg">
       <img class="home-title" src="../../assets/images/shouye_title.png" alt="给TA寄出匿名情书，开始你们的故事吧">
-      <img class="home-xinfeng" src="../../assets/images/shouye_xinfeng2.png" alt="给TA寄出匿名情书，开始你们的故事吧">
+      <img class="home-xinfeng" src="../../assets/images/shouye_xinfeng2.png" @click="showEgg" alt="给TA寄出匿名情书，开始你们的故事吧">
       <div class="home-link">
         <div class="home-myletter" @click="onMails" alt="给TA寄出匿名情书，开始你们的故事吧"></div>
         <div class="home-collect" @click="collect"></div>
@@ -20,6 +20,9 @@
       <div class="go-first-letter" @click="onMails"></div>
     </div>
     <div class="tips-text" v-if="showTextTips">未收到情书</div>
+    <div class="brand-egg" v-if="showBrandEgg" @click="showBrandEgg = false;">
+      <div class="brand-egg-cont"></div>
+    </div>
   </div>
 </template>
 <style src="./home.scss" lang="scss" scoped></style>

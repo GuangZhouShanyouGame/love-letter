@@ -31,6 +31,8 @@ export default class Home extends Vue {
   showTextTips = false;
   timer = null
 
+  showBrandEgg = false
+
   shareTimelineOpstion = {
     title: '为TA寄出一封匿名情书，开始你们的故事吧', // 分享标题
     link: conFig.host, // 分享链接
@@ -82,7 +84,9 @@ export default class Home extends Vue {
   collect() {
     this.showNoLetter = true;
   }
-
+  showEgg() {
+    this.showBrandEgg = true;
+  }
   // 点击我的情书按钮
   onMails() {
     _hmt.push(['_trackEvent', 'myLetter', 'myLetter']);

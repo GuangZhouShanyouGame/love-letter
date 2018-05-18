@@ -1,9 +1,9 @@
 @import "base";
 
-@font-face {
-  font-family: HandBook;
-  src: url("../../assets/front/handbook.ttf");
-}
+// @font-face {
+//   font-family: HandBook;
+//   src: url("../../assets/front/handbook.ttf");
+// }
 
 .write-wp {
   position: relative;
@@ -72,7 +72,7 @@
       vertical-align: middle;
       border: none;
       background: transparent;
-      font-family: HandBook;
+      // font-family: HandBook;
     }
   }
 

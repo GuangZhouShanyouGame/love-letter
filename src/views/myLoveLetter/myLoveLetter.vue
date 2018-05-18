@@ -28,9 +28,10 @@
           <a href="javascript://" class="btn-link send-out" @click="onStepOut"></a>
         </div>
 
-        <div class="letter-text"></div>
+        
 
         <div class="logo-wp">
+          <div class="letter-text"></div>
           <img class="logo-img" src="../../assets/images/logo.png" @click="showBrandEgg = true;" alt="中国巨幕">
         </div>
       </div>
