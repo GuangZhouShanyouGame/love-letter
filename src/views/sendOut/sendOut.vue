@@ -8,10 +8,10 @@
         <div class="sendOut-cont">
           <div class="btns-wp">
             <div>
-              <a href="javascript:;" class="btn-link write-again" @click="onReturnWrite"></a>
+              <a href="javascript:;" class="btn-link write-again" @click="onReturnHome"></a>
             </div>
             <div>
-              <a href="javascript:;" class="btn-link return-home" @click="onReturnHome"></a>
+              <a href="javascript:;" class="btn-link return-home" @click="onShowShare"></a>
             </div>
           </div>
           <div class="logo-wp">
@@ -20,9 +20,8 @@
         </div>
       </div>
     </div>
-
-    <div class="brand-egg" v-if="showBrandEgg" @click="showBrandEgg = false;">
-      <div class="brand-egg-cont"></div>
+    <div class="share-cont" v-if="showNoLetter" @click="showNoLetter = false;">
+      <img src="../../assets/images/shouye_share.png" class="share-img" alt="分享">
     </div>
   </div>
 </template>

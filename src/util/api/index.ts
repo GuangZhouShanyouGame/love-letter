@@ -22,6 +22,7 @@ export default {
   },
 
   shares() {
+    _hmt.push(['_trackEvent', 'share', 'share']);
     return http.post('/cgs/shares', {})
   },
 
@@ -45,6 +46,7 @@ export default {
   },
 
   postContent (params) {
+    _hmt.push(['_trackEvent', 'send', 'send']);
     return http.post('/cgs/mails', {
       content: params.content,
       to_openid: params.to_openid,

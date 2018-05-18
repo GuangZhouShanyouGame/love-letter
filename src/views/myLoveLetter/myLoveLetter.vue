@@ -38,7 +38,7 @@
     <div class="keys-wp" v-if="showKeys">
       <div class="keys-main">
         <div class="qrcode-wp">
-          <img src="../../assets/images/qr-code.png" alt="" class="qrcode">
+          <img src="../../assets/images/qr-code.png" @touchstart="touchQr" class="qrcode">
           <div class="btn-fuzhi" :data-clipboard-text="keyText" @click="fuzhi"></div>
         </div>
         <div class="keys-close" @click="showKeys = false;"></div>

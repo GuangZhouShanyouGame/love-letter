@@ -107,8 +107,13 @@ export default class MyLoveLetter extends Vue {
       setTimeout(() => {
         this.showShareTips = false;
       }, 3000);
+      _hmt.push(['_trackEvent', 'secret', 'secret']);
     });
      clipboard.on('error', function(e) {});
+  }
+
+  touchQr() {
+    _hmt.push(['_trackEvent', 'qrcode', 'qrcode']);
   }
 
   //[wxRegCallback 用于微信JS-SDK回调]

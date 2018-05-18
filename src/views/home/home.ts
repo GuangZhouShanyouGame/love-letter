@@ -85,6 +85,7 @@ export default class Home extends Vue {
 
   // 点击我的情书按钮
   onMails() {
+    _hmt.push(['_trackEvent', 'myLetter', 'myLetter']);
     if(this.myLetterNum === 0) {
       // this.showNoLetter = true;
       this.showTextTips = true

@@ -11,6 +11,7 @@ import util from 'util/index'
 })
 export default class SendOut extends Vue {
   showBrandEgg = false;
+  showNoLetter = false;
 
   openid = '';
   created() {
@@ -28,7 +29,9 @@ export default class SendOut extends Vue {
   onReturnHome() {
     this.$router.push({path: '/home'})
   }
-
+  onShowShare() {
+    this.showNoLetter = true
+  }
   //[wxRegCallback 用于微信JS-SDK回调]
   wxRegCallback () {
     this.wxShareTimeline();
