@@ -38,6 +38,10 @@
 
   .watchMovie-main {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
   }
 
   .letter-info {
@@ -248,7 +252,7 @@
 
       .ticket-code {
         position: relative;
-        padding-top: (250 / 75 ) * 1rem;
+        padding-top: (220 / 75 ) * 1rem;
         font-size: (48 / 75) * 1rem;
         font-weight: bold;
         color: #fff;
@@ -262,17 +266,24 @@
         width: (70 / 75) * 1rem;
         height: (70 / 75) * 1rem;
         text-decoration: none;
-        cursor: pointer;
+        background-image: url(../../assets/images/icon_close.png);
+        background-repeat: no-repeat;
+        background-size: contain;
       }
 
       .receive-tickets {
-        position: absolute;
-        left: (146 / 75) * 1rem;
-        bottom: (40 / 75) * 1rem;
+        // position: absolute;
+        position: relative;
+        margin: (520 / 75) * 1rem auto 0;
+        // left: (146 / 75) * 1rem;
+        // bottom: (40 / 75) * 1rem;
         width: (251 / 75) * 1rem;
         height: (87 / 75) * 1rem;
-        cursor: pointer;
+        
         text-decoration: none;
+        background-image: url(../../assets/images/btn-get-ticket.png);
+        background-repeat: no-repeat;
+        background-size: contain;
       }
     }
   }

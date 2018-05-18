@@ -23,6 +23,9 @@
     <div class="share-cont" v-if="showNoLetter" @click="showNoLetter = false;">
       <img src="../../assets/images/shouye_share.png" class="share-img" alt="分享">
     </div>
+    <div class="brand-egg" v-if="showBrandEgg" @click="showBrandEgg = false;">
+      <div class="brand-egg-cont"></div>
+    </div>
   </div>
 </template>
 <style src="./sendOut.scss" lang="scss" scoped></style>

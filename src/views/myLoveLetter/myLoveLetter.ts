@@ -23,7 +23,8 @@ export default class MyLoveLetter extends Vue {
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
-    }
+    },
+    loop: true
   }
 
   showKeys = false;

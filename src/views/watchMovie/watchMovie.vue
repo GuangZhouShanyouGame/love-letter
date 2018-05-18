@@ -31,15 +31,15 @@
     <div class="ticket-finish" v-if="showTicketFinish">
       <div class="ticketFinish-cont">
         <a href="javascript:;" class="ticketFinish-close" @click="showTicketFinish = false;"></a>
-        <a href="javascript:;" class="buy-tickets"></a>
+        <a :href="buyTicketUrl" class="buy-tickets"></a>
       </div>
     </div>
 
     <div class="ticket" v-if="showTicket">
       <div class="ticket-cont" :style="{'background-image': `url(${ticketBg})`}">
         <div class="ticket-code">{{ticketInfo.film_code}}</div>
-        <a href="javascript:;" class="ticket-close" @click="showTicket = false;"></a>
-        <a :href="ticketInfo.url" class="receive-tickets"></a>
+        <div class="ticket-close" @click="showTicket = false;"></div>
+        <div @click="getTicekt(ticketInfo.url)" class="receive-tickets"></div>
       </div>
     </div>
 

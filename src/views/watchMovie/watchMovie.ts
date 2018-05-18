@@ -15,6 +15,12 @@ export default class WatchMovie extends Vue {
   mail = {};
 
   showTicketFinish = false;
+  buyTicketUrl = ''
+  urlMap = {
+    "bn": "http://h5web.yuekeyun.com/app/BONA_H5_PROD_S_MPS/version408/user/mycoupons?wapid=BONA_H5_PROD_S_MPS&data=%7B%7D",
+    "default": "http://m.hengdafilm.com/app/HENGDA_H5_PROD_S_MPS/version408/location/index",
+    "zy": "http://m.cfc.com.cn/g?_t=yx-own"
+  }
 
   showTicket = false;
 
@@ -60,19 +66,22 @@ export default class WatchMovie extends Vue {
   onWatchMovie() {
     this.getTicket({key: this.keys});
   }
-
+  getTicekt(url) {
+    window.location.href = url
+  }
   //
   async getTicket(params) {
     let res = await this.api.getTicket(params);
+    // const res = { "payload": { "cid": "zy", "film_code": "1989051770298830", "url": "http://m.hengdafilm.com/app/HENGDA_H5_PROD_S_MPS/version408/location/index?wapid=HENGDA_H5_PROD_S_MPS" }, "code": "0", "msg": "ok" }
     if(res.code === "0") {
       this.ticketInfo = res.payload;
       this.showTicket = true;
       this.ticketBg = this.ticketMap[res.payload.cid] || require('../../assets/images/tichet-hd.png')
-      console.log(this.ticketMap[res.payload.cid] || require('../../assets/images/tichet-hd.png'))
     }
 
     if(res.code === "1002") {
       this.showTicketFinish = true;
+      this.buyTicketUrl = res.payload.url
     }
   }
 

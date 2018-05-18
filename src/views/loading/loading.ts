@@ -24,7 +24,7 @@ export default class Loading extends Vue {
       resources: [
         conFig.host + '/static/img/bg_code.png',
         conFig.host + '/static/img/bg_interception.png',
-        conFig.host + '/static/img/brand_egg.gif',
+        conFig.host + '/static/img/brand_egg.png',
         conFig.host + '/static/img/browse_btn.png',
         conFig.host + '/static/img/btn_code.png',
         conFig.host + '/static/img/btn_get_letter.png',
