@@ -109,4 +109,48 @@
       overflow: hidden;
     }
   }
+  .share-first-letter{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 11;
+    padding-top: trem(214);
+    .first-close{
+      background-image: url(../../assets/images/icon_close.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: trem(74);
+      height: trem(74);
+      position: absolute;
+      top: trem(100);
+      right: trem(54);
+    }
+    .first-mail{
+      background-image: url(../../assets/images/icon_letter.gif);
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: trem(690);
+      height: trem(480);
+      margin: 0 auto;
+    }
+    .first-text{
+      background-image: url(../../assets/images/text_new_letter.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: trem(264);
+      height: trem(76);
+      margin: 0 auto;
+    }
+    .go-first-letter{
+      background-image: url(../../assets/images/btn_go_letter.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: trem(274);
+      height: trem(86);
+      margin: trem(76) auto;
+    }
+  }
 }

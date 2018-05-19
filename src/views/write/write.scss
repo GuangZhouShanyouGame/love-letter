@@ -62,17 +62,21 @@
     position: relative;
     width: (548 / 75) * 1rem;
     height: (700 / 75) * 1rem;
+    padding: (40 / 75) * 1rem;
     margin: 0 auto;
 
     .write-textarea {
       display: table-cell;
-      width: (548 / 75) * 1rem;
-      height: (700 / 75) * 1rem;
-      padding: (20 / 75) * 1rem (30 / 75)*1rem;
+      // width: (548 / 75) * 1rem;
+      // height: (700 / 75) * 1rem;
+      width: 100%;
+      height: 100%;
+      // padding: (20 / 75) * 1rem (30 / 75)*1rem;
       font-size: (30 /75) * 1rem;
       vertical-align: middle;
       border: none;
       background: transparent;
+      padding-top:(20 / 75) * 1rem;
       // font-family: HandBook;
     }
     .placeHolder{
@@ -80,7 +84,7 @@
       color: #4a4a4a;
       position: absolute;
       text-align: center;
-      width: 100%;
+      // width: 100%;
       top: 45%;
     }
   }
@@ -151,5 +155,12 @@
     text-align: center;
     border-radius: (6 / 75) * 1rem;
     background-color: rgba(0, 0, 0, 0.6);
+  }
+  .borrow-t {
+    position: relative;
+    font-size: (28 / 75) * 1rem;
+    font-weight: 500;
+    text-align: left;
+    color: black;
   }
 }

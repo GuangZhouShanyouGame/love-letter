@@ -12,6 +12,7 @@ import util from 'util/index'
 export default class SendOut extends Vue {
   showBrandEgg = false;
   showNoLetter = false;
+  myFirstLetter = false;
 
   openid = '';
   created() {
@@ -37,13 +38,15 @@ export default class SendOut extends Vue {
     this.wxShareTimeline();
     this.wxShareAppMessage();
   }
-
+  goMyLetter() {
+    this.$router.push({ path: '/myLoveLetter' });
+  }
   // 分享到朋友圈
   wxShareTimeline() {
     const that = this;
     let opstion = {
       title: '520给我寄出一封匿名情书，开始我们的故事吧', // 分享标题
-      link: conFig.host + '#/write/' + that.openid, // 分享链接
+      link: conFig.host + '#/write/' + JSON.parse(localStorage.getItem('auth_data')).openid, // 分享链接
       imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
         that.shares();
@@ -60,7 +63,7 @@ export default class SendOut extends Vue {
     let opstion = {
       title: '为TA寄出一封匿名情书', // 分享标题
       desc: '520给我寄出一封匿名情书，开始我们的故事吧',
-      link: conFig.host + '#/write/' + that.openid, // 分享链接
+      link: conFig.host + '#/write/' + JSON.parse(localStorage.getItem('auth_data')).openid, // 分享链接
       imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
         that.shares();
@@ -73,5 +76,10 @@ export default class SendOut extends Vue {
   // 分享成功时调用
   async shares() {
     let res = await this.api.shares();
+    if (res.code === '0' && res.payload.system_mail === 'Y') {
+      console.log('弹出弹窗')
+      this.showNoLetter = false;
+      this.myFirstLetter = true
+    }
   }
 }

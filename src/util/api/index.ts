@@ -68,6 +68,9 @@ export default {
       limit: params.limit
     })
   },
+  getFriendInfo(params) {
+    return http.get(`/cgs/users/${params.openid}/info`, {})
+  },
 
   http: http,
   axios: axios

@@ -32,6 +32,7 @@ export default class Home extends Vue {
   timer = null
 
   showBrandEgg = false
+  showRule = false
 
   shareTimelineOpstion = {
     title: '为TA寄出一封匿名情书，开始你们的故事吧', // 分享标题

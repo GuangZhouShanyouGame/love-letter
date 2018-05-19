@@ -4,8 +4,10 @@
       <div class="write-bg">
         <div class="write-main">
           <div class="write-info">
-            <textarea v-model="params.content" class="write-textarea" maxlength="80" @focus="showHolder = false" @blur="params.content.length > 0 ? showHolder = false : showHolder = true"></textarea>
-            <p class="placeHolder" v-show="showHolder">点击输入你的匿名情书(80字以内)</p>
+            <div class="borrow-t">亲爱的 {{userInfo.nickname}}</div>
+            <p class="placeHolder" v-show="showHolder" @click="focusTextarea">点击输入你的匿名情书(80字以内)</p>
+            <textarea v-model="params.content" class="write-textarea" maxlength="80" @blur="params.content.length > 0 ? showHolder = false : showHolder = true" @focus="focus"></textarea>
+            
           </div>
         </div>
         <div class="btns-wp">

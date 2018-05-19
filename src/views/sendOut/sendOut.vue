@@ -23,6 +23,12 @@
     <div class="share-cont" v-if="showNoLetter" @click="showNoLetter = false;">
       <img src="../../assets/images/shouye_share.png" class="share-img" alt="分享">
     </div>
+    <div class="share-first-letter" v-if="myFirstLetter">
+      <div class="first-close" @click="myFirstLetter = false"></div>
+      <div class="first-mail"></div>
+      <div class="first-text"></div>
+      <div class="go-first-letter" @click="onReturnHome"></div>
+    </div>
     <div class="brand-egg" v-if="showBrandEgg" @click="showBrandEgg = false;">
       <div class="brand-egg-cont"></div>
     </div>

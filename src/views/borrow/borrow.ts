@@ -326,19 +326,20 @@ export default class Borrow extends Vue {
       currentIndexSpan.innerHTML = this.$refs.mySwiper.swiper.realIndex + 1
     })
 
-    this.getBrowseMails({
-      openid: this.openid,
-      offset: 1,
-      limit: 99999
-    })
+    // this.getBrowseMails({
+    //   openid: this.openid,
+    //   offset: 1,
+    //   limit: 99999
+    // })
+    this.getUserInfo()
   }
 
-  async getBrowseMails(params) {
-    let res = await this.api.getBrowseMails(params);
-    if(res.code === "0") {
-      this.userInfo = res.payload.user;
-    }
-  }
+  // async getBrowseMails(params) {
+  //   let res = await this.api.getBrowseMails(params);
+  //   if(res.code === "0") {
+  //     this.userInfo = res.payload.user;
+  //   }
+  // }
 
   //获取范围内的随机数
   randNum(minnum , maxnum){
@@ -368,7 +369,15 @@ export default class Borrow extends Vue {
   onReturnWrite() {
     this.$router.push({path:'/write/' + this.openid})
   }
-
+  async getUserInfo() {
+    let res = await this.api.getFriendInfo({
+      openid: this.openid,
+    })
+    if(res.code === '0') {
+      this.userInfo = res.payload.user_info
+      console.log("userInfo", this.userInfo)
+    }
+  }
   //[wxRegCallback 用于微信JS-SDK回调]
   wxRegCallback () {
     this.wxShareTimeline();

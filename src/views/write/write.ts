@@ -20,7 +20,7 @@ export default class Write extends Vue {
   auth_data = {};
 
   openid = '';
-
+  userInfo = {}
   showTips = false;
   tipText = '';
 
@@ -34,6 +34,7 @@ export default class Write extends Vue {
 
     wxapi.wxRegister(this.wxRegCallback);
 
+    this.getUserInfo();
 
     const authData = localStorage.getItem('auth_data');
     if(authData) {
@@ -59,7 +60,12 @@ export default class Write extends Vue {
       this.postContent(this.params);
     }
   }
-
+  focus() {
+    this.showHolder = false
+  }
+  focusTextarea() {
+    document.querySelector('textarea').focus()
+  }
   // 发送信件
   async postContent(params) {
     let res = await this.api.postContent(params);
@@ -73,7 +79,15 @@ export default class Write extends Vue {
       },1500);
     }
   }
-
+  async getUserInfo() {
+    let res = await this.api.getFriendInfo({
+      openid: this.openid,
+    })
+    if (res.code === '0') {
+      this.userInfo = res.payload.user_info
+      console.log("userInfo", this.userInfo)
+    }
+  }
   onReturnBorrow() {
     this.$router.push({path:'/borrow/'+this.openid})
   }
