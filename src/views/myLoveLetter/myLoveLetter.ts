@@ -6,6 +6,7 @@ import * as Clipboard from 'clipboard'
 import wxapi from 'util/wxapi'
 import conFig from 'util/config'
 import util from 'util/index'
+import sensitiveWordsText from 'util/sensitiveWords'
 // import * as cookie from 'cookie_js'
 
 @Component({
@@ -66,6 +67,15 @@ export default class MyLoveLetter extends Vue {
     if(res.code === "0") {
       this.mails = res.payload.mails;
       this.mailsTotal = res.payload.mails.length;
+      this.mails.forEach(v => {
+        const isSensitive = sensitiveWordsText.find((word) => {
+          return v.content.indexOf(word) > -1;
+        });
+        if(isSensitive) {
+          v.content = v.content.replace(isSensitive, '*****')
+        }
+      })
+      
     }
   }
 
