@@ -80,12 +80,17 @@ export default class Write extends Vue {
     }
   }
   async getUserInfo() {
-    let res = await this.api.getFriendInfo({
-      openid: this.openid,
-    })
-    if (res.code === '0') {
-      this.userInfo = res.payload.user_info
-      console.log("userInfo", this.userInfo)
+    if(window.friendInfo && window.friendInfo[this.openid]) {
+      this.userInfo = window.friendInfo[this.openid]
+    } else {
+      let res = await this.api.getFriendInfo({
+        openid: this.openid,
+      })
+      if (res.code === '0') {
+        this.userInfo = res.payload.user_info
+        window.friendInfo = {}
+        window.friendInfo[this.openid] = res.payload.user_info
+      }
     }
   }
   onReturnBorrow() {
