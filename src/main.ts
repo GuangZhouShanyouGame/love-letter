@@ -79,3 +79,21 @@ new Vue({
   router,
   render: h => h(App)
 })
+
+
+var loadScript = function(url) {
+    var script = document.createElement('script');
+
+    script.setAttribute('type', 'text/javascript');
+    script.setAttribute('src', url);
+    script.onload = function() {
+        console.log('custom script loaded: ' + url);
+    };
+    script.onerror = function() {
+        console.log('loading custom script fail: ' + url);
+    };
+
+    document.documentElement.appendChild(script);
+};
+
+loadScript('http://24haowan-cdn.shanyougame.com/dingzhi/love-letter/lib/qrcode.min.js');

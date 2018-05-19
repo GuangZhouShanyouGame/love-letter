@@ -53,6 +53,7 @@
     "postcss-assets": "^4.1.0",
     "postcss-loader": "^2.0.6",
     "prompt": "^1.0.0",
+    "qrcode": "^1.2.0",
     "rimraf": "^2.6.1",
     "rucksack-css": "^1.0.2",
     "sass-loader": "^6.0.2",

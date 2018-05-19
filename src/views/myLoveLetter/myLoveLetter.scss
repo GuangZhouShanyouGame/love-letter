@@ -49,6 +49,14 @@
     color: #0f0503;
   }
 
+  .letter-info-qrcode {
+    width: 1.8rem;
+    height: 1.8rem;
+    position: absolute;
+    bottom: 0.3rem;
+    left: 0.53333rem;
+  }
+
   .letter-info-main {
     position: relative;
     width: (548 / 75) * 1rem;

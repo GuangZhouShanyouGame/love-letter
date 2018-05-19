@@ -15,6 +15,7 @@
                     <img class="u-avatar" v-if="mail.headimgurl !== null" :src="mail.headimgurl" :alt="mail.nickname">
                     <span class="u-name">{{mail.nickname === null ? '匿名好友': mail.nickname}}</span>
                   </div>
+                  <div class='letter-info-qrcode'></div>
                 </div>
               </div>
             </swiper-slide>

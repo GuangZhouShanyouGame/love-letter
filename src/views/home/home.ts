@@ -40,8 +40,8 @@ export default class Home extends Vue {
   }
 
   shareAppMessageOpstion = {
-    title: '为TA寄出一封匿名情书', // 分享标题
-    desc: '520给我寄出一封匿名情书，开始我们的故事吧',
+    title: '别再偷偷喜欢'+ JSON.parse(localStorage.getItem('auth_data')).nickname +'了，给TA写封匿名情书吧', // 分享标题
+    desc: '勇敢迈出这一步，说不定你们就有故事了呢！',
     link: conFig.host, // 分享链接
   }
   created() {
@@ -54,15 +54,17 @@ export default class Home extends Vue {
       this.auth_data = JSON.parse(authData);
     }
 
+    const nickname=(<any>this.auth_data).nickname;
+
     this.shareTimelineOpstion = {
-      title: '520给我寄出一封匿名情书，开始我们的故事吧',
-      link: conFig.host + '#/write/' + (<any>this.auth_data).openid
+      title: `别再偷偷喜欢${nickname}了，给TA写封匿名情书吧`,
+      link: conFig.host + '#/borrow/' + (<any>this.auth_data).openid
     }
 
     this.shareAppMessageOpstion = {
-      title: '为TA寄出一封匿名情书', // 分享标题
-      desc: '520给我寄出一封匿名情书，开始我们的故事吧',
-      link: conFig.host + '#/write/' + (<any>this.auth_data).openid, // 分享链接
+      title: `别再偷偷喜欢${nickname}了，给TA写封匿名情书吧`, // 分享标题
+      desc: '勇敢迈出这一步，说不定你们就有故事了呢！',
+      link: conFig.host + '#/borrow/' + (<any>this.auth_data).openid, // 分享链接
     }
     wxapi.wxRegister(this.wxRegCallback);
 

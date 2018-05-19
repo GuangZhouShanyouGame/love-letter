@@ -310,8 +310,21 @@ export default class Borrow extends Vue {
     util.handleInception.call(this)
   }
   async mounted() {
+
+
+
     this.openid = this.$route.params.openid;
     this.params.to_openid = this.$route.params.openid;
+
+    const authData = localStorage.getItem('auth_data');
+    if(authData) {
+      this.auth_data = JSON.parse(authData)
+    }
+
+    // 进入自己的页面，则跳转到首页
+    if(this.openid === (<any>this.auth_data).openid) {
+      this.$router.replace('/home')
+    }
 
     this.total = this.borrowData.length;
     const num = this.randNum(0,this.total);
@@ -393,8 +406,8 @@ export default class Borrow extends Vue {
   wxShareTimeline() {
     const that = this;
     let opstion = {
-      title: '520给我寄出一封匿名情书，开始我们的故事吧', // 分享标题
-      link: conFig.host + '#/write/' + JSON.parse(localStorage.getItem('auth_data')).openid, // 分享链接
+      title: '别再偷偷喜欢'+ JSON.parse(localStorage.getItem('auth_data')).nickname +'了，给TA写封匿名情书吧', // 分享标题
+      link: conFig.host + '#/borrow/' + JSON.parse(localStorage.getItem('auth_data')).openid, // 分享链接
       imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
         that.shares();
@@ -409,9 +422,9 @@ export default class Borrow extends Vue {
   wxShareAppMessage() {
     const that = this;
     let opstion = {
-      title: '为TA寄出一封匿名情书', // 分享标题
-      desc: '520给我寄出一封匿名情书，开始我们的故事吧',
-      link: conFig.host + '#/write/' + JSON.parse(localStorage.getItem('auth_data')).openid, // 分享链接
+      title: '别再偷偷喜欢'+ JSON.parse(localStorage.getItem('auth_data')).nickname +'了，给TA写封匿名情书吧', // 分享标题
+      desc: '勇敢迈出这一步，说不定你们就有故事了呢！',
+      link: conFig.host + '#/borrow/' + JSON.parse(localStorage.getItem('auth_data')).openid, // 分享链接
       imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
         that.shares();

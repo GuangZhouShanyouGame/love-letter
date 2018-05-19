@@ -127,8 +127,8 @@ export default class Loading extends Vue {
   wxShareAppMessage() {
     const that = this;
     let opstion = {
-      title: '为TA寄出一封匿名情书', // 分享标题
-      desc: '520给我寄出一封匿名情书，开始我们的故事吧',
+      title: '别再偷偷喜欢TA了，给TA写封匿名情书吧', // 分享标题
+      desc: '勇敢迈出这一步，说不定你们就有故事了呢！',
       link: conFig.host, // 分享链接
       imgUrl: wxapi.opstions.imgUrl,// 分享图标
       success() {
